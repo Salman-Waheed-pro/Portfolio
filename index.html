@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salman Waheed | Product, Marketing, & Engineering Hybrid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+        }
+        /* Custom accent color */
+        .text-accent {
+            color: #22d3ee; /* cyan-400 */
+        }
+        .bg-accent {
+            background-color: #22d3ee; /* cyan-400 */
+        }
+        .border-accent {
+            border-color: #22d3ee; /* cyan-400 */
+        }
+        /* Active nav link styling */
+        .nav-link.active {
+            color: #22d3ee; /* cyan-400 */
+            font-weight: 700;
+        }
+        /* Section fade-in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-80 backdrop-blur-md border-b border-slate-700">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-bold text-white">Salman Waheed</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link text-slate-300 hover:text-accent transition-colors">About</a>
+                <a href="#strengths" class="nav-link text-slate-300 hover:text-accent transition-colors">Strengths</a>
+                <a href="#work" class="nav-link text-slate-300 hover:text-accent transition-colors">Work</a>
+                <a href="#contact" class="nav-link text-slate-300 hover:text-accent transition-colors">Contact</a>
+            </nav>
+            <a href="mailto:salman.waheed@tuni.fi" target="_blank" rel="noopener noreferrer" class="hidden md:block bg-accent text-slate-900 font-bold px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all">
+                Get In Touch
+            </a>
+            <!-- Mobile Menu (optional, for simplicity we'll hide nav on mobile for now) -->
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24 md:pt-32">
+
+        <!-- Section 1: Hero -->
+        <section id="hero" class="min-h-[80vh] flex items-center fade-in-section is-visible">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">
+                    Hi, I’m Salman Waheed.
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-bold text-accent mt-4">
+                    I build impact-driven solutions across Product, Marketing, and Engineering.
+                </h2>
+                <p class="text-lg md:text-xl text-slate-400 mt-6">
+                    Hybrid Problem Solver | Builder | Communicator
+                </p>
+                <div class="mt-10 flex gap-4">
+                    <a href="#work" class="bg-accent text-slate-900 font-bold px-8 py-3 rounded-lg hover:bg-opacity-80 transition-all text-lg">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-slate-600 text-slate-300 font-bold px-8 py-3 rounded-lg hover:border-slate-400 hover:text-white transition-all text-lg">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: About Me & Philosophy -->
+        <section id="about" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="md:col-span-1">
+                    <h2 class="text-3xl font-bold text-white mb-4">
+                        My Journey
+                    </h2>
+                    <p class="text-lg text-accent font-medium">
+                        My strength has always been connecting the dots - not just coding, not just designing, not just writing, but understanding how everything interacts.
+                    </p>
+                </div>
+                <div class="md:col-span-2 space-y-6 text-lg text-slate-300">
+                    <p>
+                        I am an impact-focused problem solver who works at the intersection of product, marketing, and engineering. My strength lies in transforming vague goals into actionable plans, connecting the dots between technical constraints and user experience, and building solutions that actually make a difference.
+                    </p>
+                    <p>
+                        When I joined my last role, I wasn't given tasks. I was given problems. "We need an affiliate structure." That's all they said. I turned that vague concept into a fully functioning system: requirements → user journeys → design → execution.
+                    </p>
+                    <p>
+                        My value isn’t in one domain. <strong class="text-white">My value is in combining domains.</strong> This hybrid identity allows me to reduce unnecessary iterations, increase pace, and keep teams aligned and moving with clarity.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-20 md:mt-28">
+                <h3 class="text-2xl font-bold text-white text-center mb-12">
+                    My Approach to Work
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Philosophy Card 1 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <h4 class="text-lg font-bold text-white">Build for Impact</h4>
+                        <p class="text-slate-400 mt-2">Make decisions based on what creates real value, not just activity.</p>
+                    </div>
+                    <!-- Philosophy Card 2 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <h4 class="text-lg font-bold text-white">Increase Clarity</h4>
+                        <p class="text-slate-400 mt-2">If a task is vague, define it. If it's complex, simplify it.</p>
+                    </div>
+                    <!-- Philosophy Card 3 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <h4 class="text-lg font-bold text-white">Always Know the "Why"</h4>
+                        <p class="text-slate-400 mt-2">Never separate technical execution from the user it's for.</p>
+                    </div>
+                    <!-- Philosophy Card 4 -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <h4 class="text-lg font-bold text-white">Own the Problem</h4>
+                        <p class="text-slate-400 mt-2">Take ownership, ask the right questions, and build with purpose.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Core Hybrid Strengths -->
+        <section id="strengths" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-16">
+                Core Hybrid Strengths
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Product Column -->
+                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white">Product</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Turning abstract ideas into structured execution plans</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Mapping user journeys, designing flows, and identifying bottlenecks</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Always considering personas, UX logic, and the “why” behind features</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Project & product management experience (Jira, Confluence)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Marketing Column -->
+                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.144-6.099A1.76 1.76 0 003.5 12.118V11.882c0-.675.283-1.3.76-1.74l3.806-3.806a1.76 1.76 0 012.49.071l3.59 3.59a1.76 1.76 0 01.07 2.49l-3.805 3.806z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.144-6.099A1.76 1.76 0 003.5 12.118V11.882c0-.675.283-1.3.76-1.74l3.806-3.806a1.76 1.76 0 012.49.071l3.59 3.59a1.76 1.76 0 01.07 2.49l-3.805 3.806z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.122 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.144-6.099A1.76 1.76 0 0011.5 12.118V11.882c0-.675.283-1.3.76-1.74l3.806-3.806a1.76 1.76 0 012.49.071l3.59 3.59a1.76 1.76 0 01.07 2.49l-3.805 3.806z" />
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white">Marketing</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Copywriting (emails, social captions, branding)</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Built affiliate and referral systems from scratch</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Content creation (reels, Canva, CapCut)</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Achieved up to 20k reach on Facebook for a niche academic startup</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Email flows with above-average open rates</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Engineering Column -->
+                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-white">Engineering</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Built a mini recommendation-product (EU funding call matcher)</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Web scraping with Selenium & automation pipeline design</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Problem-solving, debugging, logic-first mindset</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Programming: Java (strong), C++ (OOP), Python (applied)</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>React basics, DevOps basics, Git teamwork</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Featured Work & Experience -->
+        <section id="work" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-16">
+                Featured Work & Experience
+            </h2>
+
+            <div class="space-y-16">
+
+                <!-- Work Item 1: Aveksana -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                        <span class="text-sm font-bold text-accent uppercase">Startup Experience</span>
+                        <h3 class="text-2xl font-bold text-white mt-2">Hybrid Intern @ Aveksana</h3>
+                        <p class="text-lg text-slate-300 mt-4">
+                            At a startup serving academia & R&D, I wore many hats, taking on open-ended tasks and delivering end-to-end solutions. I acted as the bridge between the technical team, product team, and users.
+                        </p>
+                        <div class="mt-6 space-y-2">
+                            <p class="font-medium text-white">Key Contributions:</p>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1">
+                                <li>Designed and built the complete affiliate & referral system</li>
+                                <li>Created email marketing flows (onboarding, branding, positioning)</li>
+                                <li>Drove 20k organic reach on Facebook through strategic content</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-white">From Vague Problem to Full System</h4>
+                        <p class="text-lg text-slate-300 mt-4">
+                            This role defined my hybrid approach. I wasn't just executing tasks; I was solving core business problems. Building the affiliate system required product thinking (user flows), marketing (incentives), and technical logic (implementation)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Work Item 2: EU Funding Pipeline -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="p-8 md:order-2">
+                        <h4 class="text-xl font-bold text-white">From Manual Search to Mini-Product</h4>
+                        <p class="text-lg text-slate-300 mt-4">
+                            This project proved I could build a functional, data-driven product. It involved scraping, automated filtering, and a matching algorithm to compare user profiles against thousands of proposals. It was a clear demonstration of cross-functional thinking.
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 md:order-1">
+                        <span class="text-sm font-bold text-accent uppercase">Technical Project</span>
+                        <h3 class="text-2xl font-bold text-white mt-2">EU Funding Recommendation Pipeline</h3>
+                        <p class="text-lg text-slate-300 mt-4">
+                            Built an automated data pipeline that scraped thousands of open proposal calls for EU funding, filtered them, and delivered personalized recommendations inside the platform dashboard.
+                        </p>
+                        <div class="mt-6 space-y-2">
+                            <p class="font-medium text-white">Impact & Tech:</p>
+                            <ul class="list-disc list-inside text-slate-400 space-y-1">
+                                <li>Replaced hours of manual search for users</li>
+                                <li>Enabled automatic discovery of relevant opportunities</li>
+                                <li><strong class="text-slate-300">Tech:</strong> Python, Selenium, custom filtering logic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Experience -->
+                <div class="pt-16">
+                    <h3 class="text-2xl font-bold text-white text-center mb-10">Additional Experience</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class_alias="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                            <h4 class="text-lg font-bold text-white">PM & Product Coursework</h4>
+                            <p class="text-slate-400 mt-2">Led a student team using Jira & Confluence to plan, develop, and deliver a software MVP (task manager).</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class_alias="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                            <h4 class="text-lg font-bold text-white">Social Media Manager</h4>
+                            <p class="text-slate-400 mt-2">Managed content creation, scheduling, and caption writing for a consultancy, optimizing for reach.</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class_alias="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                            <h4 class="text-lg font-bold text-white">Academic & Research Writing</h4>
+                            <p class="text-slate-400 mt-2">IBDP Extended Essay (Grade A) and 5/5 in university course "Writing Scientific Reports in English."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 5: Contact -->
+        <section id="contact" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">
+                    Let's Talk... Soon:)
+                </h2>
+                <p class="text-lg text-slate-300 mt-6">
+                    I'm always looking for new challenges and opportunities to build impactful, transparent solutions. If you're interested in my hybrid approach, I'd love to chat.
+                </p>
+                <p class="text-lg text-slate-400 italic mt-6">
+                    Do you prefer the mental peace of working with a fully-committed teammate, or the drag of second-guessing someone's contribution?
+                </p>
+                <div class="mt-12 flex flex-col md:flex-row gap-6 justify-center">
+                    <!-- IMPORTANT: Replace placeholders below -->
+                    <a href="mailto:salman.waheed@tuni.fi" class="bg-accent text-slate-900 font-bold px-8 py-4 rounded-lg hover:bg-opacity-80 transition-all text-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M2.003 5.884L10 11.884l7.997-6M2 18h16V6l-8 5-8-5v12z" />
+                        </svg>
+                        salman.waheed@tuni.fi
+                    </a>
+                    <a href="https://share.google/G7WyuSJbxoluVj1DS" target="_blank" rel="noopener noreferrer" class="bg-slate-700 text-white font-bold px-8 py-4 rounded-lg hover:bg-slate-600 transition-all text-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 Salman Waheed. Built to make an impact.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-Top Button (optional) -->
+    <button id="to-top" class="fixed bottom-8 right-8 bg-accent p-3 rounded-full text-slate-900 shadow-lg hidden opacity-0 transition-all hover:bg-opacity-80" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const toTopButton = document.getElementById('to-top');
+
+            // --- Section Fade-in Logic ---
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                fadeInObserver.observe(section);
+            });
+
+            // --- Active Nav Link & Scroll-to-Top Logic ---
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 150) { // 150px offset
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // --- To-Top Button Visibility ---
+                if (window.scrollY > 400) {
+                    toTopButton.classList.remove('hidden');
+                    toTopButton.classList.add('opacity-100');
+                } else {
+                    toTopButton.classList.remove('opacity-100');
+                    setTimeout(() => {
+                        toTopButton.classList.add('hidden');
+                    }, 300); // Match transition duration
+                }
+            });
+        });
+    </script>
+</body>
+</html>
