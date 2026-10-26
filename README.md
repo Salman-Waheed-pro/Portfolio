@@ -14,7 +14,7 @@ Personal site of Salman Waheed, software engineering student at TAMK (Tampere, F
 - `work/asten-coach-finder.html`: the interactive solution page from a workshop.
 - `v1/`, `v2/`, `original/`: earlier versions, kept as they were and hidden from search engines.
 
-The top of the page is a storm of sand lines. Calm builds while you hold still and drains when you move fast or scroll; as it builds, the sand gathers into a desert rose, a flower that only forms out of heat, wind and sand. It respects `prefers-reduced-motion` (one still frame) and pauses off screen. In the work list, opening a project raises a browser screen: public projects click through from the picture, private ones scroll for the details. Light and dark themes follow the system, with a toggle.
+The top of the page is a storm of sand lines over charcoal. Calm builds while you hold still and drains when you move fast or scroll; as it builds, the sand gathers into a desert rose, a flower that only forms out of heat, wind and sand. It respects `prefers-reduced-motion` (one still frame) and pauses off screen. A sentence then lights up word by word as you scroll, and the habits are drawn as a temple of four columns that rise into place. In the work list, opening a project raises a browser screen: public projects click through from the picture, private ones scroll for the details. Light and dark themes follow the system, with a toggle.
 
 ## Projects linked from the site
 
