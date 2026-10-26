@@ -1,0 +1,972 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Asten Coach Finder · Salman Waheed</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one long reading page. Swimlane grid for the journey, three data tables, a live demo (intake panel left, ranked cards right), then build order, metrics and the company questions. */
+:root{
+  --bg:#EDF0F3; --surface:#FFFFFF; --surface-2:#E2E8ED; --ink:#122029; --ink-2:#4B5B67; --line:#C9D3DA;
+  --accent:#0B7F7A; --accent-ink:#FFFFFF; --accent-soft:#D2EDEB;
+  --blue:#3556A6; --blue-soft:#DCE4F6; --amber:#A65A08; --amber-soft:#F6E4CC;
+  --violet:#6B4FA3; --violet-soft:#E6DFF3; --grey-soft:#E4E8EB; --good:#2A7A3B; --bad:#B3261E;
+  --c-fit:#0B7F7A; --c-quality:#3556A6; --c-resp:#C9791F; --c-avail:#7A5BB5; --c-boost:#8A98A3;
+  --font-display:'Archivo','Arial Narrow',Arial,sans-serif;
+  --font-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D171E; --surface:#14222B; --surface-2:#1B2C37; --ink:#E6EEF3; --ink-2:#9DB1BD; --line:#2A3D49;
+    --accent:#3FC8C0; --accent-ink:#04211F; --accent-soft:#11403D;
+    --blue:#8FA8EE; --blue-soft:#1E2B4F; --amber:#F0A24E; --amber-soft:#3B2A12;
+    --violet:#B7A0EA; --violet-soft:#2D2547; --grey-soft:#22323D; --good:#6FD08A; --bad:#FF8A80;
+    --c-fit:#3FC8C0; --c-quality:#8FA8EE; --c-resp:#F0A24E; --c-avail:#B7A0EA; --c-boost:#8DA0AD;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D171E; --surface:#14222B; --surface-2:#1B2C37; --ink:#E6EEF3; --ink-2:#9DB1BD; --line:#2A3D49;
+  --accent:#3FC8C0; --accent-ink:#04211F; --accent-soft:#11403D;
+  --blue:#8FA8EE; --blue-soft:#1E2B4F; --amber:#F0A24E; --amber-soft:#3B2A12;
+  --violet:#B7A0EA; --violet-soft:#2D2547; --grey-soft:#22323D; --good:#6FD08A; --bad:#FF8A80;
+  --c-fit:#3FC8C0; --c-quality:#8FA8EE; --c-resp:#F0A24E; --c-avail:#B7A0EA; --c-boost:#8DA0AD;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.55 var(--font-body);
+  padding-block:0 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:76px}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+h1,h2,h3{font-family:var(--font-display);font-stretch:125%;font-weight:800;letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,5.2vw,52px)}
+h2{font-size:clamp(24px,3.4vw,34px)}
+h3{font-size:17px;font-stretch:112%;font-weight:700}
+p{margin:0;max-width:68ch}
+ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font:500 12px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:18px;color:var(--ink-2)}
+.small{font-size:13px;color:var(--ink-2)}
+.mono{font-family:var(--font-mono)}
+
+header.hero{padding-top:44px;display:flex;flex-direction:column;gap:18px}
+.nav{display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px var(--font-mono)}
+.nav a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+.nav a:hover{color:var(--accent);border-color:var(--accent)}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:6px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;min-width:0}
+.panel.flat{background:transparent}
+.personas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.persona{display:flex;flex-direction:column;gap:8px}
+.persona dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
+.persona dt{color:var(--ink-2);font:500 11px var(--font-mono);letter-spacing:.05em;text-transform:uppercase;padding-top:3px}
+.persona dd{margin:0}
+
+.tag{display:inline-block;font:500 11px var(--font-mono);letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.tag.hard{background:var(--accent-soft);color:var(--accent)}
+.tag.rank{background:var(--blue-soft);color:var(--blue)}
+.tag.show{background:var(--grey-soft);color:var(--ink-2)}
+.tag.priv{background:var(--amber-soft);color:var(--amber)}
+.tagkey{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:13px;color:var(--ink-2)}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:600px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:14px}
+th{font:500 11px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td.k{font-weight:600;white-space:nowrap}
+td.ex{color:var(--ink-2)}
+.entity{display:flex;flex-direction:column;gap:10px}
+.entities{display:flex;flex-direction:column;gap:28px}
+
+/* swimlane */
+.swimscroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.swim{display:grid;grid-template-columns:116px repeat(6,minmax(158px,1fr));gap:1px;background:var(--line);min-width:1080px}
+.swim>div{background:var(--surface);padding:11px 12px;font-size:13.5px;line-height:1.45;min-width:0}
+.swim .corner{background:var(--surface-2)}
+.swim .stage{background:var(--surface-2);display:flex;flex-direction:column;gap:3px}
+.swim .stage b{font:800 15px var(--font-display);font-stretch:118%;color:var(--ink)}
+.swim .stage span{font:500 11px var(--font-mono);color:var(--accent);letter-spacing:.06em}
+.swim .rowlabel{font:500 11px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);background:var(--surface-2)}
+.swim .data{background:var(--accent-soft);font-family:var(--font-mono);font-size:12px}
+.loop{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink-2)}
+.loop svg{flex:none}
+
+/* demo */
+.modebar{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{padding:9px 14px;border:0;background:transparent;font:600 14px var(--font-body);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.demo{display:grid;grid-template-columns:minmax(250px,310px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.demo{grid-template-columns:minmax(0,1fr)}}
+.side{display:flex;flex-direction:column;gap:16px}
+.intake{display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.lbl,label.lbl{font:500 11px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 13px var(--font-body);padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip .n{font:400 11px var(--font-mono);opacity:.75;margin-left:5px}
+.chip.zero{opacity:.45}
+.chk{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink-2)}
+input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);margin:0;flex:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+select{font:500 14px var(--font-body);padding:7px 10px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.rowbetween{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.val{font:500 13px var(--font-mono);color:var(--ink)}
+.wrow{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.wrow label{display:flex;align-items:center;gap:7px;font-size:13px}
+.dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+.wrow input{grid-column:1/-1}
+.btn{font:600 13px var(--font-body);padding:7px 12px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{color:var(--accent-ink);opacity:.9}
+.results{display:flex;flex-direction:column;gap:12px;min-width:0}
+.resulthead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.count{font:800 22px var(--font-display);font-stretch:118%}
+.note{background:var(--accent-soft);border:1px solid var(--accent);border-radius:6px;padding:10px 12px;font-size:14px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.note.warn{background:var(--amber-soft);border-color:var(--amber)}
+.coach{display:flex;flex-direction:column;gap:12px;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.coach.dim{opacity:.6}
+.chead{display:flex;gap:12px;align-items:center}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font:700 14px var(--font-display);flex:none}
+.cname{font:700 16px var(--font-body)}
+.cmeta{font-size:13px;color:var(--ink-2)}
+.cscore{margin-left:auto;text-align:right;display:flex;flex-direction:column;gap:4px;min-width:84px}
+.cscore b{font:500 20px var(--font-mono)}
+.bar{height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.why{font-size:14px;margin:0}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px 14px;margin:0}
+.fields div{display:flex;flex-direction:column;gap:1px}
+.fields dt{font:500 10.5px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.fields dd{margin:0;font-size:14px}
+.cfoot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font:500 11px var(--font-mono);padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.pill.ok{color:var(--good);border-color:currentColor}
+.pill.warn{color:var(--amber);border-color:currentColor}
+.pill.new{color:var(--violet);border-color:currentColor}
+.pill.miss{color:var(--bad);border-color:currentColor}
+.cmpwrap{display:flex;flex-direction:column;gap:10px}
+td.best{background:var(--accent-soft);font-weight:600}
+tr.grp th{background:var(--blue-soft);color:var(--blue)}
+.empty{padding:22px;border:1px dashed var(--line);border-radius:8px;color:var(--ink-2)}
+
+/* compare tables, columns, funnel */
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.col{display:flex;flex-direction:column;gap:12px}
+.col .when{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.trigger{font-size:13px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.funnel{display:flex;flex-direction:column;gap:6px}
+.step{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-radius:6px;background:var(--accent-soft);width:var(--w);min-width:min(100%,300px)}
+.step span{font-size:14px;font-weight:600}
+.step code{font:400 12px var(--font-mono);color:var(--ink-2);text-align:right}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.rule{display:flex;flex-direction:column;gap:6px}
+.rule p{font-size:14px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+
+/* questions */
+.qhead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.qgroup{display:flex;flex-direction:column}
+.qgroup h3{padding:14px 0 6px}
+.q{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.q input{margin-top:3px}
+.qt{font-weight:600}
+.q.done .qt{text-decoration:line-through;color:var(--ink-2)}
+.qbody{display:flex;flex-direction:column;gap:4px;font-size:14px}
+.qbody .why2{color:var(--ink-2)}
+.qbody .asm b{font:500 11px var(--font-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.first{font:500 10.5px var(--font-mono);letter-spacing:.05em;text-transform:uppercase;background:var(--amber-soft);color:var(--amber);padding:1px 6px;border-radius:4px;margin-left:8px;white-space:nowrap}
+.copybox{width:100%;min-height:160px;font:400 12px var(--font-mono);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:8px;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
+footer{font-size:13px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<div style="max-width:1120px;margin:0 auto;padding:14px 0 0;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;font:500 12px 'IBM Plex Mono',ui-monospace,monospace;color:var(--ink-2)"><a href="../#work" style="color:var(--accent);text-decoration:none">&larr; Salman Waheed / portfolio</a><span>Workshop project. Made in a team workshop; this design and page are my own work.</span></div>
+<div class="wrap">
+
+<header class="hero" id="top">
+  <div class="eyebrow">Workshop task 3 · Finding the right coach</div>
+  <h1>Help an athlete pick one coach they are still training with eight weeks later</h1>
+  <p class="lead">The finder is a matching tool with a search box attached. A short intake turns into filters and ranking inputs, every package is shown on one template, and a free intro call lowers the risk of choosing wrong. Everything on this page is built around that sequence.</p>
+  <nav class="nav" aria-label="Sections">
+    <a href="#journey">Journey</a>
+    <a href="#data">Data</a>
+    <a href="#arch">Architecture</a>
+    <a href="#try">Try it</a>
+    <a href="#scale">5 vs 500</a>
+    <a href="#build">Build order</a>
+    <a href="#measure">Measures</a>
+    <a href="#ask">Ask the company</a>
+  </nav>
+  <div class="principles">
+    <div class="panel"><h3>Filter on what makes a coach useless</h3><p class="small" style="margin-top:6px">Sport, where, language, budget and open slots remove people. Everything else changes the order.</p></div>
+    <div class="panel"><h3>Compare packages, not profiles</h3><p class="small" style="margin-top:6px">One template, price per week beside every offer, three coaches side by side at most.</p></div>
+    <div class="panel"><h3>Start by hand, automate later</h3><p class="small" style="margin-top:6px">With five coaches a person matches athletes. With five hundred the filters and the ranking take over.</p></div>
+  </div>
+</header>
+
+<section id="journey">
+  <div class="eyebrow">The whole flow</div>
+  <h2>One journey, three actors, six stages</h2>
+  <p>Read each column top to bottom. The last row shows the data that moves between stages, which is also the list of things the database has to hold.</p>
+  <div class="swimscroll" tabindex="0" aria-label="Journey swimlane, scrolls sideways on small screens">
+    <div class="swim">
+      <div class="corner"></div>
+      <div class="stage"><span>STAGE 1</span><b>Intake</b></div>
+      <div class="stage"><span>STAGE 2</span><b>Filter</b></div>
+      <div class="stage"><span>STAGE 3</span><b>Rank</b></div>
+      <div class="stage"><span>STAGE 4</span><b>Compare</b></div>
+      <div class="stage"><span>STAGE 5</span><b>Intro call</b></div>
+      <div class="stage"><span>STAGE 6</span><b>Train and review</b></div>
+
+      <div class="rowlabel">Athlete does</div>
+      <div>Answers a short set of questions: sport, goal, years of training, where, schedule, budget.</div>
+      <div>Watches a live count, relaxes one filter if the list is thin.</div>
+      <div>Reads a best match list. Switches to price, rating or soonest start if they prefer.</div>
+      <div>Pins up to three coaches and reads their packages side by side.</div>
+      <div>Books a free intro call or sends a contact request.</div>
+      <div>Starts a package. Rates the coach after week 8.</div>
+
+      <div class="rowlabel">Platform does</div>
+      <div>Saves the answers as a search profile. Asks about injuries only later, with consent.</div>
+      <div>Applies hard filters: sport, where, language, gender, schedule, budget, accepting athletes.</div>
+      <div>Drops full or silent coaches, then scores fit, quality, response time, start date and a new coach boost.</div>
+      <div>Shows every package on one template with price per week worked out.</div>
+      <div>Opens a thread. Shares the intake summary with the coach once the athlete agrees.</div>
+      <div>Confirms the booking, asks for the review, updates the quality signals.</div>
+
+      <div class="rowlabel">Coach does</div>
+      <div>Applies, gets vetted, has credentials checked.</div>
+      <div>Sets sports, cities, languages and how many athletes they can take.</div>
+      <div>Replies quickly and keeps the next start date current.</div>
+      <div>Fills in the package template. No free-form pricing.</div>
+      <div>Answers inside the response target and holds the intro call.</div>
+      <div>Delivers the plan. Sees rebooking and review results.</div>
+
+      <div class="rowlabel">Data that moves</div>
+      <div class="data">sport, goal, years trained, city, mode, schedule, gender, budget</div>
+      <div class="data">coach sports, city, languages, capacity, price</div>
+      <div class="data">response hours, rating and count, rebooking, next start, join date</div>
+      <div class="data">package fields, price per week, cancellation terms</div>
+      <div class="data">contact request, intro call outcome</div>
+      <div class="data">review, rebooking, still active at week 8</div>
+    </div>
+  </div>
+  <div class="loop">
+    <svg width="34" height="20" viewBox="0 0 34 20" aria-hidden="true"><path d="M30 4 H8 a6 6 0 0 0 -6 6 a6 6 0 0 0 6 6 H28" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M25 12 L29 16 L25 20" fill="none" stroke="currentColor" stroke-width="1.6" transform="translate(0,-1)"/></svg>
+    <span>Stage 6 feeds stage 3. Reviews and rebooking at week 8 become the quality signal that ranks the next athlete's list.</span>
+  </div>
+</section>
+
+<section id="data">
+  <div class="eyebrow">Data we assume</div>
+  <h2>Who uses it, and what we store about them</h2>
+  <p>We don't have Asten's real schema, so these are typical fields for a coaching marketplace. Each field is tagged with how the finder uses it. Check the last section for what to confirm with the company.</p>
+  <div class="personas">
+    <div class="panel persona">
+      <span class="tag show" style="align-self:flex-start">Assumed athlete</span>
+      <h3>Mika, 31, Tampere</h3>
+      <dl>
+        <dt>Sport</dt><dd>Running, wants a first half marathon in June</dd>
+        <dt>Experience</dt><dd>2 years of regular running, 3 to 4 days a week</dd>
+        <dt>Schedule</dt><dd>Weekday mornings and Sunday</dd>
+        <dt>Budget</dt><dd>Up to €160 a month</dd>
+        <dt>Where</dt><dd>Tampere in person once a month, online the rest</dd>
+        <dt>Languages</dt><dd>Finnish and English</dd>
+        <dt>Worry</dt><dd>Picking someone who goes quiet after the first week</dd>
+      </dl>
+    </div>
+    <div class="panel persona">
+      <span class="tag show" style="align-self:flex-start">Assumed coach</span>
+      <h3>Laura, 38, Helsinki</h3>
+      <dl>
+        <dt>Sports</dt><dd>Running and trail running, 9 years coaching</dd>
+        <dt>Coaches</dt><dd>Athletes with up to 3 years of training, first races</dd>
+        <dt>Schedule</dt><dd>Mornings and evenings, calls Tue and Thu</dd>
+        <dt>Capacity</dt><dd>14 of 18 athlete slots filled</dd>
+        <dt>Where</dt><dd>Helsinki in person, online anywhere</dd>
+        <dt>Languages</dt><dd>Finnish and English</dd>
+        <dt>Worry</dt><dd>Spending unpaid hours on athletes who were never a fit</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="tagkey" aria-label="Tag key">
+    <span><span class="tag hard">Hard filter</span> removes coaches from the list</span>
+    <span><span class="tag rank">Ranking</span> changes the order</span>
+    <span><span class="tag show">Shown</span> displayed on cards and profiles</span>
+    <span><span class="tag priv">Private</span> sensitive, restricted access</span>
+  </div>
+  <div class="entities" id="entities"></div>
+</section>
+
+<section id="arch">
+  <div class="eyebrow">Technical view</div>
+  <h2>How data travels through the system</h2>
+  <p>This assumes a modular monolith on Postgres, which is the simplest thing that handles 500 coaches. Boxes are modules, not separate deployments. Replace it with Asten's real stack once the company answers the questions at the bottom.</p>
+  <div class="swimscroll" tabindex="0" aria-label="Architecture diagram, scrolls sideways on small screens">
+  <svg viewBox="0 0 1000 620" width="100%" style="min-width:900px;display:block;background:var(--surface)" role="img" aria-label="Data flow from clients through the API and services to Postgres, cache and event log">
+    <style>
+      .nb{fill:var(--surface-2);stroke:var(--line);stroke-width:1}
+      .nb.pg{fill:var(--accent-soft);stroke:var(--accent)}
+      .nb.wk{fill:var(--amber-soft);stroke:var(--amber)}
+      .nb.cl{fill:var(--blue-soft);stroke:var(--blue)}
+      .t1{font:700 14px var(--font-body);fill:var(--ink)}
+      .t2{font:400 11.5px var(--font-body);fill:var(--ink-2)}
+      .lb{font:500 11px var(--font-mono);fill:var(--ink-2)}
+      .cap{font:500 11px var(--font-mono);letter-spacing:.08em;fill:var(--ink-2)}
+      .ln{stroke:var(--ink-2);stroke-width:1.4;fill:none}
+      .ln.d{stroke-dasharray:5 4}
+      .nn{fill:var(--accent)}
+      .nt{font:700 11px var(--font-mono);fill:var(--accent-ink);text-anchor:middle}
+    </style>
+    <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink-2)"/></marker></defs>
+    <text class="cap" x="20" y="22">CLIENTS</text><text class="cap" x="250" y="22">API</text><text class="cap" x="520" y="22">SERVICES (MODULES)</text><text class="cap" x="800" y="22">STORES</text>
+
+    <rect class="nb cl" x="20" y="60" width="190" height="72" rx="6"/><text class="t1" x="34" y="88">Athlete app</text><text class="t2" x="34" y="108">intake, results, compare</text>
+    <rect class="nb cl" x="20" y="300" width="190" height="72" rx="6"/><text class="t1" x="34" y="328">Coach app</text><text class="t2" x="34" y="348">profile, packages, slots</text>
+
+    <rect class="nb" x="250" y="150" width="190" height="220" rx="6"/><text class="t1" x="264" y="180">Backend API</text>
+    <text class="t2" x="264" y="202">sign-in and roles</text><text class="t2" x="264" y="220">input validation</text><text class="t2" x="264" y="238">one endpoint per screen</text><text class="t2" x="264" y="256">rate limits</text><text class="t2" x="264" y="274">emits events</text>
+
+    <rect class="nb" x="520" y="30" width="190" height="64" rx="6"/><text class="t1" x="534" y="58">Profiles</text><text class="t2" x="534" y="76">athletes, coaches, slots</text>
+    <rect class="nb" x="520" y="130" width="190" height="64" rx="6"/><text class="t1" x="534" y="158">Search and ranking</text><text class="t2" x="534" y="176">filter, score, explain</text>
+    <rect class="nb" x="520" y="230" width="190" height="64" rx="6"/><text class="t1" x="534" y="258">Packages</text><text class="t2" x="534" y="276">template, price per week</text>
+    <rect class="nb" x="520" y="330" width="190" height="64" rx="6"/><text class="t1" x="534" y="358">Contact and booking</text><text class="t2" x="534" y="376">threads, intro calls</text>
+    <rect class="nb" x="520" y="430" width="190" height="64" rx="6"/><text class="t1" x="534" y="458">Reviews</text><text class="t2" x="534" y="476">verified, week 8 prompt</text>
+    <rect class="nb wk" x="520" y="530" width="190" height="64" rx="6"/><text class="t1" x="534" y="558">Background worker</text><text class="t2" x="534" y="576">nightly and on events</text>
+
+    <rect class="nb pg" x="800" y="30" width="180" height="400" rx="6"/><text class="t1" x="814" y="58">Postgres</text>
+    <text class="t2" x="814" y="82">users</text><text class="t2" x="814" y="100">athlete_profiles</text><text class="t2" x="814" y="118">coach_profiles</text><text class="t2" x="814" y="136">coach_sports</text><text class="t2" x="814" y="154">coach_availability</text><text class="t2" x="814" y="172">packages</text><text class="t2" x="814" y="190">contact_threads</text><text class="t2" x="814" y="208">bookings</text><text class="t2" x="814" y="226">reviews</text>
+    <text class="t2" x="814" y="262" style="font-weight:700">coach_stats (computed)</text><text class="t2" x="814" y="280">median_response_h</text><text class="t2" x="814" y="298">rating_avg, review_n</text><text class="t2" x="814" y="316">rebook_rate, accepting</text>
+    <text class="t2" x="814" y="360">Indexes on sport, city,</text><text class="t2" x="814" y="378">price, accepting, start date</text>
+    <rect class="nb" x="800" y="450" width="180" height="60" rx="6"/><text class="t1" x="814" y="476">Cache</text><text class="t2" x="814" y="494">facet counts, top results</text>
+    <rect class="nb" x="800" y="530" width="180" height="64" rx="6"/><text class="t1" x="814" y="556">Event log</text><text class="t2" x="814" y="574">to analytics and funnel</text>
+
+    <path class="ln" marker-end="url(#ah)" d="M210 96 L250 190"/>
+    <path class="ln" marker-end="url(#ah)" d="M210 336 L250 330"/>
+    <path class="ln" marker-end="url(#ah)" d="M440 200 L520 62"/>
+    <path class="ln" marker-end="url(#ah)" d="M440 215 L520 162"/>
+    <path class="ln" marker-end="url(#ah)" d="M440 260 L520 262"/>
+    <path class="ln" marker-end="url(#ah)" d="M440 310 L520 362"/>
+    <path class="ln" marker-end="url(#ah)" d="M440 340 L520 462"/>
+    <path class="ln" marker-end="url(#ah)" d="M710 62 L800 62"/>
+    <path class="ln" marker-end="url(#ah)" d="M710 162 L800 162"/>
+    <path class="ln" marker-end="url(#ah)" d="M710 262 L800 262"/>
+    <path class="ln" marker-end="url(#ah)" d="M710 362 L800 362"/>
+    <path class="ln" marker-end="url(#ah)" d="M710 462 L800 412"/>
+    <path class="ln d" marker-end="url(#ah)" d="M710 185 L800 470"/>
+    <path class="ln d" marker-end="url(#ah)" d="M710 548 L800 425"/>
+    <path class="ln d" marker-end="url(#ah)" d="M710 578 L800 570"/>
+    <path class="ln d" marker-end="url(#ah)" d="M345 370 Q345 570 520 570"/>
+
+    <g><circle class="nn" cx="230" cy="143" r="10"/><text class="nt" x="230" y="147">1</text></g>
+    <g><circle class="nn" cx="480" cy="186" r="10"/><text class="nt" x="480" y="190">2</text></g>
+    <g><circle class="nn" cx="755" cy="148" r="10"/><text class="nt" x="755" y="152">3</text></g>
+    <g><circle class="nn" cx="762" cy="318" r="10"/><text class="nt" x="762" y="322">4</text></g>
+    <g><circle class="nn" cx="480" cy="248" r="10"/><text class="nt" x="480" y="252">5</text></g>
+    <g><circle class="nn" cx="480" cy="342" r="10"/><text class="nt" x="480" y="346">6</text></g>
+    <g><circle class="nn" cx="755" cy="500" r="10"/><text class="nt" x="755" y="504">7</text></g>
+    <text class="lb" x="256" y="395">events (dashed)</text>
+    <text class="lb" x="20" y="420">solid = request path</text><text class="lb" x="20" y="438">dashed = async or cached</text>
+  </svg>
+  </div>
+  <div class="two">
+    <div class="panel"><h3>What each numbered arrow carries</h3>
+      <ul>
+        <li>1. The intake answers as a query: sport, goal, years of training, where, schedule, gender preference, language, budget, sort.</li>
+        <li>2. The API validates it and calls search and ranking with a typed filter object.</li>
+        <li>3. One SQL query applies the hard filters and returns candidate coaches with their computed stats.</li>
+        <li>4. Facet counts and the top results come from cache when the same filters were run recently.</li>
+        <li>5. Package rows for the returned coach ids are fetched in one batch, with price per week worked out.</li>
+        <li>6. A contact request creates a thread and shares the intake summary only after the athlete agrees.</li>
+        <li>7. The worker recomputes response time, rating, rebooking and the accepting flag, and writes them to coach_stats.</li>
+      </ul>
+    </div>
+    <div class="panel"><h3>The search call</h3>
+<pre class="mono" style="margin:0;white-space:pre-wrap;font-size:12px;overflow-x:auto">GET /api/coaches/search
+  ?sport=running&amp;where=tampere&amp;inPerson=0
+  &amp;years=1-3&amp;goal=first-race&amp;sched=evenings
+  &amp;gender=any&amp;lang=any&amp;budget=160&amp;sort=match
+
+200 {
+  total: 34,
+  facets: { sport:{...}, where:{...} },
+  results: [{ coachId, score, parts:{fit,quality,
+    response,start,boost}, why, card:{...},
+    packages:[...] }],
+  relax: { label, count } | null
+}</pre>
+      <p class="small" style="margin-top:10px">Ranking runs in application code over the filtered rows, so weights live in config and can change without a migration. Every response logs a results_viewed event with the count and the zero-result flag.</p>
+    </div>
+  </div>
+</section>
+
+<section id="try">
+  <div class="eyebrow">Working model</div>
+  <h2>Try the finder</h2>
+  <p>The coaches below are invented example data. Switch between launch day and the later state, change the athlete's answers, and move the ranking weights to see what the ordering depends on.</p>
+  <div class="modebar">
+    <div class="seg" role="group" aria-label="Marketplace size">
+      <button type="button" id="mLaunch" aria-pressed="false">Launch day · 5 coaches</button>
+      <button type="button" id="mScale" aria-pressed="true">Later · 500 coaches</button>
+    </div>
+    <span class="small" id="modeCaption"></span>
+  </div>
+
+  <div class="demo">
+    <div class="side">
+      <div class="panel intake">
+        <h3>Athlete intake</h3>
+        <div class="field"><span class="lbl">Sport</span><div class="chips" id="fSport"></div></div>
+        <div class="field"><span class="lbl">Goal</span><div class="chips" id="fGoal"></div>
+          <label class="chk"><input type="checkbox" id="mustGoal"> Must match this goal</label></div>
+        <div class="field"><span class="lbl">Years of training</span><div class="chips" id="fLevel"></div>
+          <label class="chk"><input type="checkbox" id="mustLevel"> Must match this experience</label></div>
+        <div class="field"><span class="lbl">Where</span><div class="chips" id="fWhere"></div>
+          <label class="chk"><input type="checkbox" id="inPerson"> In person only</label></div>
+        <div class="field"><span class="lbl">Language</span><div class="chips" id="fLang"></div></div>
+        <div class="field"><span class="lbl">Coach gender</span><div class="chips" id="fGender"></div></div>
+        <div class="field"><span class="lbl">Schedule</span><div class="chips" id="fSched"></div></div>
+        <div class="field">
+          <div class="rowbetween"><label class="lbl" for="budget">Budget per month</label><span class="val" id="budgetVal"></span></div>
+          <input type="range" id="budget" min="30" max="400" step="10" value="160">
+        </div>
+      </div>
+      <div class="panel intake">
+        <div class="rowbetween"><h3>Ranking weights</h3><button type="button" class="btn" id="resetW">Reset</button></div>
+        <p class="small">Hand-set at launch, written down with a reason. Fit counts most because a good match beats a popular coach.</p>
+        <div id="weights"></div>
+        <p class="small">Full or silent coaches are dropped before scoring, so no weight can bring them back.</p>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="resulthead">
+        <div class="count" id="count"></div>
+        <div class="field" style="flex-direction:row;align-items:center;gap:8px"><label class="lbl" for="sort">Sort</label>
+          <select id="sort"><option value="match">Best match</option><option value="price">Lowest price</option><option value="rating">Highest rating</option><option value="start">Soonest start</option></select></div>
+      </div>
+      <div id="notice"></div>
+      <div id="list" class="results"></div>
+      <div id="more"></div>
+    </div>
+  </div>
+
+  <div class="cmpwrap" id="compare"></div>
+</section>
+
+<section id="scale">
+  <div class="eyebrow">Stretch question</div>
+  <h2>Does it still work with five coaches? With five hundred?</h2>
+  <p>It works at both sizes because the intake, the card and the package template stay the same. What changes is how much of the filtering and ranking the screen needs to show.</p>
+  <div class="tablewrap"><table id="scaleTable"></table></div>
+  <div class="note"><span>One thing holds at any size. Across several sports and cities, 500 coaches still means only a few per sport per city. Online coaching fills the gaps, so it is a first-class option from the first release.</span></div>
+</section>
+
+<section id="build">
+  <div class="eyebrow">Sequencing</div>
+  <h2>What to build first and what to wait on</h2>
+  <p>Each stage has a trigger, a thing you can see in the data that says it's time to move on.</p>
+  <div class="cols3" id="buildCols"></div>
+</section>
+
+<section id="measure">
+  <div class="eyebrow">Success and rules</div>
+  <h2>How we know it works, and the rules to settle before launch</h2>
+  <p>Count athletes who are still training with their coach at week 8, not clicks. Each step below needs one logged event, from the first day.</p>
+  <div class="funnel" id="funnel"></div>
+  <p class="small">Bar widths show the shape of a funnel, not real numbers. Also watch the share of searches with zero results, the time to the coach's first reply, and how many coaches an athlete contacts.</p>
+  <h3 style="margin-top:12px">Rules to decide early</h3>
+  <div class="rules" id="rules"></div>
+  <h3 style="margin-top:12px">Test the assumptions this week</h3>
+  <div class="two">
+    <div class="panel"><h3>Ask three athletes</h3><ul id="askAthletes"></ul></div>
+    <div class="panel"><h3>Ask two coaches</h3><ul id="askCoaches"></ul></div>
+  </div>
+</section>
+
+<section id="ask">
+  <div class="eyebrow">For the company</div>
+  <h2>What we need to find out</h2>
+  <p>The design above rests on assumptions. These questions replace them with facts. Items marked "Ask first" change the design the most. Tick questions as answers come in, then paste the answers back and the design gets adjusted.</p>
+  <div class="qhead">
+    <span class="small" id="qprogress"></span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn primary" id="copyQ">Copy all questions</button></div>
+  </div>
+  <textarea class="copybox" id="copybox" hidden readonly aria-label="Questions as plain text"></textarea>
+  <div id="questions"></div>
+</section>
+
+<footer>Coaches, ratings, prices and names on this page are invented to make the demo work. Athlete and coach profiles are assumptions about a typical coaching marketplace until the company confirms its own.</footer>
+
+</div>
+<div class="toast" id="toast" hidden role="status"></div>
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var TAG={hard:'Hard filter',rank:'Ranking',show:'Shown',priv:'Private'};
+function tag(t){return '<span class="tag '+t+'">'+TAG[t]+'</span>'}
+
+/* ---------- data model ---------- */
+var ENT=[
+ {title:'Athlete (profile and intake)',rows:[
+  ['Sport','Running','hard','A coach in the wrong sport is useless.'],
+  ['City and mode','Tampere, in person or online','hard','Decides who can be reached at all.'],
+  ['Monthly budget','€160','hard','Drops packages the athlete cannot pay for.'],
+  ['Language','Finnish, English','hard','Coaching needs a shared language.'],
+  ['Goal','First half marathon','rank','Matches coach specialties. Can be promoted to a hard filter.'],
+  ['Years of training','2 years of regular running','rank','Measured in years, grouped into four bands. Can be promoted to a hard filter.'],
+  ['Days per week','4','rank','Fits coaches whose plans suit that load.'],
+  ['Race or target date','14 June','rank','Sets how soon the athlete needs to start.'],
+  ['Coach gender preference','No preference','hard','Hard filter only when the athlete sets one.'],
+  ['Schedule','Weekday mornings, Sunday','hard','Matched against coach availability for sessions and calls.'],
+  ['Coach style preference','Structured','rank','Optional soft match.'],
+  ['Age band','25 to 34','priv','Separates adults from juniors, who need guardian consent.'],
+  ['Injury or health note','Left knee, 2 years ago','priv','Optional. Shared with a coach only after the athlete agrees.'],
+  ['Connected apps','Strava','show','Later. Could pre-fill level and weekly volume.']
+ ]},
+ {title:'Coach (profile and live state)',rows:[
+  ['Sports','Running, trail running','hard','One to three per coach.'],
+  ['City, mode, radius','Helsinki, both, 25 km','hard','In person needs a radius, online has none.'],
+  ['Languages','Finnish, English','hard','Same list as the athlete side.'],
+  ['Accepting athletes','14 of 18 slots filled','hard','Computed from capacity. Full coaches drop out.'],
+  ['Athlete ages coached','Adults only','hard','Juniors need safeguarding checks first.'],
+  ['Experience range coached','Up to 3 years of training','rank','Fit signal, in the same year bands as the athlete.'],
+  ['Gender','Woman','hard','Self-declared and optional. Used only when an athlete sets a preference.'],
+  ['Weekly availability','Mon to Thu mornings, Sat','hard','Time slots for sessions and calls.'],
+  ['Goal specialties','First race, get faster','rank','Fit signal.'],
+  ['Median response time','3 hours','rank','Measured by the platform, never self-reported.'],
+  ['Next available start','4 days','rank','Athletes want to begin soon.'],
+  ['Rating, review count, rebooking rate','4.8, 40 reviews, 82%','rank','Computed. Rebooking is the stronger quality signal.'],
+  ['Join date','62 days ago','rank','Feeds the time-limited new coach boost.'],
+  ['Coaching style tags','Structured, data-led','rank','Soft match.'],
+  ['Credentials and verified badge','Licensed, 9 years','show','Badge only when the vetting rule is met.'],
+  ['Intro call','Free, 20 minutes','show','The main risk reducer.'],
+  ['Photo, bio, intro video','','show','Matters most when there are no reviews yet.']
+ ]},
+ {title:'Package (one template for every coach)',rows:[
+  ['Title and sport','Race plan, running','show','Short, comparable names.'],
+  ['Price per month','€140','hard','Budget filter compares against the cheapest package.'],
+  ['Duration','12 weeks','show','Price per week is worked out from this.'],
+  ['Price per week','€11.50','rank','Computed. Shown on every card and in the compare view.'],
+  ['Feedback frequency','Weekly','show','The biggest difference between a €60 and a €140 package.'],
+  ['Calls per month','2','show','Fixed options so offers line up.'],
+  ['Plan format','App plan, PDF, or both','show','Fixed options.'],
+  ['Race-day support','Yes','show','Yes or no.'],
+  ['Cancellation terms','Cancel monthly','show','Picked from a short list, checked against consumer law.']
+ ]}
+];
+var h='';
+ENT.forEach(function(e){
+  h+='<div class="entity"><h3>'+esc(e.title)+'</h3><div class="tablewrap"><table><thead><tr><th>Field</th><th>Example</th><th>Used for</th><th>Why</th></tr></thead><tbody>';
+  e.rows.forEach(function(r){h+='<tr><td class="k">'+esc(r[0])+'</td><td class="ex">'+esc(r[1])+'</td><td>'+tag(r[2])+'</td><td>'+esc(r[3])+'</td></tr>'});
+  h+='</tbody></table></div></div>';
+});
+$('#entities').innerHTML=h;
+
+/* ---------- 5 vs 500 ---------- */
+var S=[
+ ['Entry','Intake form, then a short curated list','Intake form, then filtered results'],
+ ['Filters','Sport sets the order. Nothing is hidden, so no empty page','Hard filters with live counts and a one-click hint when the list gets thin'],
+ ['Ranking','Fit first, adjusted by hand by the team','Weighted score with smoothed ratings, reviewed every few weeks'],
+ ['Social proof','Credentials, intro video, a "New" badge','Verified reviews and rebooking rate'],
+ ['Matching','A person picks two coaches for each early athlete','Self-serve. Staff handle edge cases'],
+ ['Main risk','The wrong sport or city leaves nothing to show. Recruit in the sports athletes ask for','The top ten coaches soak up the demand. Cap their exposure and rotate the rest in'],
+ ['Packages','Template enforced at onboarding','Template enforced, plus a check for drift'],
+ ['Infrastructure','One table and one SQL query','Same Postgres with indexes on sport, city, price, accepting. Add a search engine only when queries slow down']
+];
+var t='<thead><tr><th></th><th>5 coaches (launch day)</th><th>500 coaches (later)</th></tr></thead><tbody>';
+S.forEach(function(r){t+='<tr><td class="k">'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'});
+$('#scaleTable').innerHTML=t+'</tbody>';
+
+/* ---------- build order ---------- */
+var B=[
+ {when:'Now',size:'5 coaches',cls:'hard',items:['Five-question intake form','Coach profile and package template','Fixed-format coach card','Rule-based ranking with a "why this coach" line','Contact request and free intro call','Manual matching tool for staff (a spreadsheet is enough)','Event logging from day one'],trigger:'Move on when 20 athletes have used the finder and the team has read every search.'},
+ {when:'Next',size:'30 to 100 coaches',cls:'rank',items:['Hard filters with live counts','"Relax one filter" hint','Pin and compare, three at most','Verified reviews after week 8','Response time measured automatically','Capacity tracking for the accepting flag','Saved coaches'],trigger:'Move on when more than one search in five returns almost nothing, or staff can no longer match by hand.'},
+ {when:'Later',size:'500+ coaches',cls:'show',items:['Smoothed ratings and rebooking in the score','Exposure caps and rotation','Map view and email alerts for new coaches','Dedicated search engine, only if Postgres is slow','Learned ranking','Paid promotion, clearly labelled'],trigger:'Start only with enough booked outcomes to learn from. Ask a data person before trusting a model on a few hundred.'}
+];
+var bh='';
+B.forEach(function(c){
+  bh+='<div class="panel col"><div class="when"><h3>'+c.when+'</h3><span class="tag '+c.cls+'">'+c.size+'</span></div><ul>';
+  c.items.forEach(function(i){bh+='<li>'+esc(i)+'</li>'});
+  bh+='</ul><div class="trigger">'+esc(c.trigger)+'</div></div>';
+});
+$('#buildCols').innerHTML=bh;
+
+/* ---------- funnel ---------- */
+var F=[['Intake started','intake_started',100],['Intake completed','intake_completed',88],['Results viewed','results_viewed {count, zero_result}',78],['Coach pinned','coach_pinned',58],['Contact requested','contact_requested',44],['Intro call held','intro_call_held',34],['Package started','package_started',26],['Still training at week 8','week8_active',18]];
+$('#funnel').innerHTML=F.map(function(f){return '<div class="step" style="--w:'+f[2]+'%"><span>'+esc(f[0])+'</span><code>'+esc(f[1])+'</code></div>'}).join('');
+
+/* ---------- rules ---------- */
+var R=[
+ ['Coach vetting','Who gets in, what is checked, and by whom. Write it down before the first coach is invited.'],
+ ['Verified badge','Tie it to one rule, for example a checked licence plus identity. A badge without a rule teaches athletes to ignore it.'],
+ ['Quiet coaches','No reply in 7 days drops a coach out of the top. After 14 days the profile is paused until they respond.'],
+ ['Athletes under 18','Needs guardian consent, safeguarding checks for coaches and tighter data rules. Decide whether juniors are in scope at launch.'],
+ ['Health and injury data','This is special category data under GDPR. Collect it only after the athlete chooses to contact a coach, say why, and limit who can read it.'],
+ ['Reviews','Only athletes who started a package can review. Add a way to dispute a review before the first one is published.']
+];
+$('#rules').innerHTML=R.map(function(r){return '<div class="panel rule"><h3>'+esc(r[0])+'</h3><p>'+esc(r[1])+'</p></div>'}).join('');
+$('#askAthletes').innerHTML=['How did you choose your last coach, trainer or club?','What did you compare, and what was missing?','What would make you hand over your budget and goal on the first screen?','Would you book an intro call before paying anything?'].map(function(x){return '<li>'+esc(x)+'</li>'}).join('');
+$('#askCoaches').innerHTML=['What would you refuse to put in a standard package?','How many athletes can you take at once, and how do you decide?','What do you wish athletes told you before the first call?','Would you accept a rule that slow replies push you down the list?'].map(function(x){return '<li>'+esc(x)+'</li>'}).join('');
+
+/* ---------- questions for the company ---------- */
+var Q=[
+ {g:'The business and the market',items:[
+  ['Which sports, cities or countries, and languages does Asten launch with?','Sets the filter values, the language list and the currency.','Running, cycling, triathlon, swimming, strength, skiing. Helsinki, Espoo, Tampere, Turku, Oulu and online. Euro.',1],
+  ['Do athletes pay Asten, or pay the coach directly?','Decides whether packages and prices can be enforced and whether bookings can be measured.','Athletes pay through Asten for packages.',1],
+  ['How does Asten earn money (commission, coach subscription, lead fee)?','Decides whether a paid boost is ever allowed and what a booking event means.','Commission per package, no paid ranking at launch.',0],
+  ['Who are the first five coaches, and do they already have packages and prices?','Shows whether the package template fits real offers.','Loose pricing today. They fit the template with help.',0],
+  ['Are athletes under 18 allowed?','Adds guardian consent, safeguarding checks and stricter data rules.','Adults only at launch.',0]]},
+ {g:'What exists in the product today',items:[
+  ['Which platforms does Asten run on (web, iOS, Android) and in which framework?','Decides how the finder is built and whether it ships once or three times.','A React web app first.',0],
+  ['What backend and database exist today (language, framework, Postgres or other)?','Decides whether coach and package tables fit what is already there.','Postgres behind a REST API.',1],
+  ['Is there already a user table, a login and a profile screen? Which sign-in provider?','Avoids building a second identity system.','One account per person with a role of athlete or coach.',0],
+  ['Which payment provider is in place?','Package prices and cancellation rules must match what the provider can do.','Card payments through a Stripe-style provider.',0],
+  ['Is there a design system or brand guide, and which analytics tool receives events?','The cards and filters should match the product. The event list needs a destination.','Neither exists. We propose our own tokens and the event list on this page.',0],
+  ['Are Strava, Garmin or other data links planned?','They could pre-fill level and weekly volume and improve fit.','Not at launch.',0]]},
+ {g:'Data and rules',items:[
+  ['Does Asten hold any athlete health or injury data today, and where is it stored?','This is special category data. It needs consent, a stated purpose and tight access.','Only an optional note, shared with a coach after the athlete agrees.',1],
+  ['Where is data hosted, who is the data protection contact, and what is the retention rule?','Decides EU hosting and what the finder is allowed to log.','EU region, and a named contact exists.',0],
+  ['How are coaches vetted today, and which credentials earn a verified badge?','A badge is only worth showing if the rule is written down.','A licence or certificate check done by hand.',0],
+  ['Is there a review or complaint process?','Reviews need rules on who may post and how disputes work.','Only athletes with a started package can review.',0]]},
+ {g:'Operations and success',items:[
+  ['What does the company count as success for this feature?','Picks what we log and what the ranking aims at.','Athletes still training with their coach at week 8.',1],
+  ['How many coaches and athletes are expected at 3 and 12 months, and who will match by hand at the start?','Sets when to move from the launch design to the scale design.','5 coaches now, 50 to 100 within a year, a founder does the hand matching.',0],
+  ['What is the launch date, how big is the team, and who owns recruiting coaches?','Decides what goes into the first build.','A small team and a few weeks for a first version.',0]]}
+];
+var qh='',n=0,total=0,plain='';
+Q.forEach(function(g){
+  qh+='<div class="qgroup"><h3>'+esc(g.g)+'</h3>';plain+=g.g.toUpperCase()+'\n';
+  g.items.forEach(function(it){
+    n++;total++;
+    qh+='<div class="q" id="q'+n+'"><input type="checkbox" id="c'+n+'" aria-label="Answered"><div class="qbody"><div><span class="qt">'+esc(it[0])+'</span>'+(it[3]?'<span class="first">Ask first</span>':'')+'</div><div class="why2">'+esc(it[1])+'</div><div class="asm"><b>If no answer</b>'+esc(it[2])+'</div></div></div>';
+    plain+=n+'. '+it[0]+(it[3]?' [ask first]':'')+'\n   Why: '+it[1]+'\n   We assume: '+it[2]+'\n';
+  });
+  qh+='</div>';plain+='\n';
+});
+$('#questions').innerHTML=qh;
+function progress(){
+  var done=document.querySelectorAll('#questions input:checked').length;
+  $('#qprogress').textContent=done+' of '+total+' answered';
+  document.querySelectorAll('#questions .q').forEach(function(q){q.classList.toggle('done',q.querySelector('input').checked)});
+}
+$('#questions').addEventListener('change',progress);progress();
+$('#copyQ').addEventListener('click',function(){
+  var box=$('#copybox');box.value=plain.trim();
+  var show=function(){box.hidden=false;box.focus();box.select()};
+  try{navigator.clipboard.writeText(box.value).then(function(){var t=$('#toast');t.textContent='Questions copied';t.hidden=false;setTimeout(function(){t.hidden=true},1800)},show)}catch(e){show()}
+});
+})();
+</script>
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var SPORTS=['Running','Cycling','Triathlon','Swimming','Strength','Skiing'];
+var GOALS=['First race','Get faster','Health & weight','Return from injury','Compete'];
+var LEVELS=['Under 1 yr','1 to 3 yrs','3 to 6 yrs','6+ yrs'];
+var WHERES=['Online','Helsinki','Espoo','Tampere','Turku','Oulu'];
+var LANGS=['Any','Finnish','English','Swedish'];
+var GENDERS=['Any','Woman','Man'];var SCHEDS=['Any','Mornings','Evenings','Weekends'];
+var DEFW={fit:45,quality:25,resp:15,avail:10,boost:5};
+var WMETA=[['fit','Fit','--c-fit'],['quality','Quality','--c-quality'],['resp','Response time','--c-resp'],['avail','Soonest start','--c-avail'],['boost','New coach boost','--c-boost']];
+var GOALTXT={'First race':'first-race goals','Get faster':'speed goals','Health & weight':'health and weight goals','Return from injury':'return-from-injury plans','Compete':'competition goals'};
+
+var st={mode:'scale',sport:'Running',goal:'First race',level:'1 to 3 yrs',where:'Tampere',inPerson:false,lang:'Any',gender:'Any',sched:'Any',budget:160,mustGoal:false,mustLevel:false,w:Object.assign({},DEFW),sort:'match',shown:6,pinned:[]};
+
+/* ---------- invented example data ---------- */
+function pk(s,f){return [{name:'Plan only',price:s,weeks:12,feedback:'Monthly',calls:0,race:false,cancel:'14 days'},{name:'Full coaching',price:f,weeks:12,feedback:'Weekly',calls:2,race:true,cancel:'Monthly'}]}
+var LAUNCH=[
+ {id:'L1',name:'Laura Hakala',gender:'Woman',sched:['Mornings','Evenings'],sports:['Running'],city:'Helsinki',delivery:'both',langs:['Finnish','English'],goals:['First race','Get faster'],levels:['Under 1 yr','1 to 3 yrs'],rating:null,n:0,rebook:null,resp:3,accepting:true,startDays:4,verified:true,intro:true,joined:20,pk:pk(60,140)},
+ {id:'L2',name:'Teemu Rautio',gender:'Man',sched:['Evenings','Weekends'],sports:['Cycling'],city:'Tampere',delivery:'both',langs:['Finnish','English'],goals:['Get faster','Compete'],levels:['1 to 3 yrs','3 to 6 yrs'],rating:null,n:0,rebook:null,resp:9,accepting:true,startDays:10,verified:true,intro:true,joined:35,pk:pk(70,170)},
+ {id:'L3',name:'Sofia Lindqvist',gender:'Woman',sched:['Mornings','Weekends'],sports:['Triathlon'],city:null,delivery:'online',langs:['Swedish','English','Finnish'],goals:['First race','Compete'],levels:['1 to 3 yrs','3 to 6 yrs'],rating:null,n:0,rebook:null,resp:6,accepting:true,startDays:14,verified:true,intro:false,joined:50,pk:pk(80,190)},
+ {id:'L4',name:'Aino Korpela',gender:'Woman',sched:['Mornings','Evenings','Weekends'],sports:['Strength'],city:'Tampere',delivery:'both',langs:['Finnish','English'],goals:['Health & weight','Return from injury','Get faster'],levels:['Under 1 yr','1 to 3 yrs'],rating:null,n:0,rebook:null,resp:2,accepting:true,startDays:2,verified:false,intro:true,joined:12,pk:pk(50,120)},
+ {id:'L5',name:'Jonas Eklund',gender:'Man',sched:['Evenings'],sports:['Running'],city:null,delivery:'online',langs:['English','Finnish'],goals:['Get faster','Compete'],levels:['3 to 6 yrs','6+ yrs'],rating:null,n:0,rebook:null,resp:12,accepting:true,startDays:7,verified:true,intro:true,joined:28,pk:pk(65,150)}
+];
+var FIRST=['Aino','Mikko','Laura','Jussi','Sofia','Elias','Noora','Ville','Emma','Leo','Hanna','Oskar','Maria','Antti','Iida','Niko','Sara','Joel','Venla','Lauri','Katja','Matti','Elina','Samuli','Kaisa','Petri','Anna','Juho','Tiina','Eero'];
+var LAST=['Virtanen','Korhonen','Nieminen','Laine','Heikkinen','Koskinen','Lehtonen','Salminen','Hiltunen','Saarinen','Ahonen','Peltonen','Kallio','Lindholm','Strand','Eklund','Rantanen','Turunen','Jokinen','Mattila','Rinne','Sundell','Paavola','Manner','Oksanen'];
+var SW=[['Running',30],['Strength',24],['Cycling',18],['Triathlon',10],['Swimming',9],['Skiing',9]];
+var CW=[['Helsinki',30],['Espoo',8],['Tampere',16],['Turku',10],['Oulu',8],['Online',28]];
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function pickW(r,arr){var tot=arr.reduce(function(a,b){return a+b[1]},0),x=r()*tot;for(var i=0;i<arr.length;i++){x-=arr[i][1];if(x<=0)return arr[i][0]}return arr[0][0]}
+function gen(){
+  var r=rng(2026),out=[];
+  for(var i=0;i<500;i++){
+    var sp=[pickW(r,SW)];
+    if(r()<.25){var s2=SPORTS[Math.floor(r()*SPORTS.length)];if(sp.indexOf(s2)<0)sp.push(s2)}
+    var cp=pickW(r,CW),city=cp==='Online'?null:cp;
+    var delivery=!city?'online':(r()<.6?'both':'in person');
+    var langs=[];if(r()<.9)langs.push('Finnish');if(r()<.85)langs.push('English');if(r()<.15)langs.push('Swedish');if(!langs.length)langs.push('English');
+    var gc=GOALS.slice().sort(function(){return r()-.5}).slice(0,2+Math.floor(r()*2));
+    var ls=Math.floor(r()*3),lv=LEVELS.slice(ls,ls+2+Math.floor(r()*2));
+    var isNew=r()<.25,n=isNew?Math.floor(r()*5):5+Math.floor(Math.pow(r(),2)*120);
+    var rating=n?Math.min(5,Math.round((3.8+r()*1.2)*10)/10):null;
+    var resp=r()<.1?100+Math.floor(r()*200):1+Math.floor(Math.pow(r(),2)*60);
+    var s1=Math.round((35+r()*60)/5)*5;var sch=SCHEDS.slice(1).filter(function(){return r()<.55});if(!sch.length)sch=['Evenings'];var gd=r()<.5?'Woman':'Man';
+    out.push({id:'C'+i,gender:gd,sched:sch,name:FIRST[Math.floor(r()*FIRST.length)]+' '+LAST[Math.floor(r()*LAST.length)],sports:sp,city:city,delivery:delivery,langs:langs,goals:gc,levels:lv,rating:rating,n:n,rebook:n>=5?Math.round((.4+r()*.5)*100)/100:null,resp:resp,accepting:r()<.8,startDays:Math.floor(r()*45),verified:r()<.7,intro:r()<.6,joined:isNew?5+Math.floor(r()*75):90+Math.floor(r()*800),pk:pk(s1,s1+Math.round((60+r()*100)/5)*5)});
+  }
+  return out;
+}
+var BIG=null;
+function ds(){return st.mode==='launch'?LAUNCH:(BIG||(BIG=gen()))}
+function find(id){var a=ds();for(var i=0;i<a.length;i++)if(a[i].id===id)return a[i];return null}
+
+/* ---------- ranking ---------- */
+function minPrice(c){return Math.min(c.pk[0].price,c.pk[1].price)}
+function cheapest(c){return c.pk[0].price<=c.pk[1].price?c.pk[0]:c.pk[1]}
+function perWeek(p){return p.price*12/52}
+function levelFit(c){var i=LEVELS.indexOf(st.level);if(c.levels.indexOf(st.level)>=0)return 1;for(var k=0;k<c.levels.length;k++){if(Math.abs(LEVELS.indexOf(c.levels[k])-i)===1)return .5}return .15}
+function whereFit(c){var inC=c.city===st.where&&c.delivery!=='online',onl=c.delivery!=='in person';if(st.where==='Online')return onl?1:0;if(inC)return 1;if(!st.inPerson&&onl)return .6;return 0}
+function fitOf(c){
+  var sport=c.sports.indexOf(st.sport)>=0?1:0,goal=c.goals.indexOf(st.goal)>=0?1:.2;
+  var lang=(st.lang==='Any'||c.langs.indexOf(st.lang)>=0)?1:0;
+  var mp=minPrice(c),bud=mp<=st.budget?1:Math.max(0,1-(mp-st.budget)/st.budget);
+  var gs=((st.gender==='Any'||c.gender===st.gender)?.5:0)+((st.sched==='Any'||c.sched.indexOf(st.sched)>=0)?.5:0);
+  return .30*sport+.18*goal+.14*levelFit(c)+.18*whereFit(c)+.08*lang+.06*bud+.06*gs;
+}
+function smooth(c){return ((c.rating||0)*c.n+4.3*10)/(c.n+10)}
+function quality(c){var q=.6*((smooth(c)-3)/2)+.25*(c.rebook==null?.5:c.rebook)+.15*(c.verified?1:0);return Math.max(0,Math.min(1,q))}
+function comps(c){return {fit:fitOf(c),quality:quality(c),resp:1-Math.min(c.resp,72)/72,avail:c.startDays<=7?1:Math.max(0,1-(c.startDays-7)/35),boost:c.joined<=60?1-c.joined/60:0}}
+function score(c){
+  var cm=comps(c),sw=0,k;for(k in st.w)sw+=st.w[k];if(!sw)sw=1;
+  var parts={},tot=0;WMETA.forEach(function(m){parts[m[0]]=st.w[m[0]]*cm[m[0]]/sw*100;tot+=parts[m[0]]});
+  return {total:tot,parts:parts};
+}
+function pass(c){
+  if(!c.accepting)return false;
+  if(c.sports.indexOf(st.sport)<0)return false;
+  if(st.where==='Online'){if(c.delivery==='in person')return false}
+  else{var inC=c.city===st.where&&c.delivery!=='online',onl=c.delivery!=='in person';if(!(inC||(!st.inPerson&&onl)))return false}
+  if(st.lang!=='Any'&&c.langs.indexOf(st.lang)<0)return false;
+  if(st.gender!=='Any'&&c.gender!==st.gender)return false;
+  if(st.sched!=='Any'&&c.sched.indexOf(st.sched)<0)return false;
+  if(minPrice(c)>st.budget)return false;
+  if(st.mustGoal&&c.goals.indexOf(st.goal)<0)return false;
+  if(st.mustLevel&&c.levels.indexOf(st.level)<0)return false;
+  return true;
+}
+function countWith(patch){
+  var old={},k;for(k in patch){old[k]=st[k];st[k]=patch[k]}
+  var n=ds().filter(pass).length;
+  for(k in old)st[k]=old[k];
+  return n;
+}
+function why(c){
+  var p=[];
+  p.push(c.sports.indexOf(st.sport)>=0?'Coaches '+st.sport.toLowerCase():'Does not coach '+st.sport.toLowerCase());
+  if(c.levels.indexOf(st.level)>=0)p.push('suits athletes with '+st.level+' of training');
+  if(c.goals.indexOf(st.goal)>=0)p.push('covers '+GOALTXT[st.goal]);
+  var wf=whereFit(c);
+  if(st.where==='Online'){p.push(wf?'coaches online':'in person only')}
+  else if(wf===1)p.push('in '+st.where);else if(wf>0)p.push('coaches online');else p.push('not available in '+st.where);
+  if(st.sched!=='Any'&&c.sched.indexOf(st.sched)>=0)p.push('has '+st.sched.toLowerCase()+' slots');if(st.gender!=='Any'&&c.gender===st.gender)p.push(st.gender==='Woman'?'woman coach':'man coach');p.push('replies in about '+(c.resp>=48?Math.round(c.resp/24)+' days':c.resp+' h'));
+  if(c.startDays<=7)p.push('starts in '+c.startDays+' days');
+  var s=p.join(', ')+'.';return s.charAt(0).toUpperCase()+s.slice(1);
+}
+function misses(c){
+  var m=[];
+  if(c.sports.indexOf(st.sport)<0)m.push('Different sport');
+  if(whereFit(c)===0)m.push(st.where==='Online'?'In person only':'Not available in '+st.where);
+  if(st.lang!=='Any'&&c.langs.indexOf(st.lang)<0)m.push('No '+st.lang);
+  if(st.gender!=='Any'&&c.gender!==st.gender)m.push('Not a '+st.gender.toLowerCase()+' coach');
+  if(st.sched!=='Any'&&c.sched.indexOf(st.sched)<0)m.push('No '+st.sched.toLowerCase()+' slots');
+  if(minPrice(c)>st.budget)m.push('Over budget');
+  if(c.goals.indexOf(st.goal)<0)m.push('Other goals');
+  if(c.levels.indexOf(st.level)<0)m.push('Other level');
+  return m;
+}
+
+/* ---------- controls ---------- */
+var groups=[];
+function buildChips(id,opts,key,counted){
+  var el=$(id);el.innerHTML='';
+  opts.forEach(function(o){
+    var b=document.createElement('button');b.type='button';b.className='chip';b.dataset.v=o;b.innerHTML=esc(o)+'<span class="n"></span>';
+    b.addEventListener('click',function(){st[key]=o;if(key==='where'&&o==='Online')st.inPerson=false;st.shown=6;render()});
+    el.appendChild(b);
+  });
+  groups.push({el:el,key:key,counted:counted});
+}
+buildChips('#fSport',SPORTS,'sport',true);
+buildChips('#fGoal',GOALS,'goal',false);
+buildChips('#fLevel',LEVELS,'level',false);
+buildChips('#fWhere',WHERES,'where',true);
+buildChips('#fLang',LANGS,'lang',true);
+buildChips('#fGender',GENDERS,'gender',true);
+buildChips('#fSched',SCHEDS,'sched',true);
+function syncChips(){
+  groups.forEach(function(g){
+    [].forEach.call(g.el.children,function(b){
+      b.setAttribute('aria-pressed',String(st[g.key]===b.dataset.v));
+      var n=b.querySelector('.n'),show=g.counted&&st.mode==='scale';
+      if(show){var patch={};patch[g.key]=b.dataset.v;var c=countWith(patch);n.textContent=c;b.classList.toggle('zero',c===0)}
+      else{n.textContent='';b.classList.remove('zero')}
+    });
+  });
+}
+$('#mustGoal').addEventListener('change',function(e){st.mustGoal=e.target.checked;st.shown=6;render()});
+$('#mustLevel').addEventListener('change',function(e){st.mustLevel=e.target.checked;st.shown=6;render()});
+$('#inPerson').addEventListener('change',function(e){st.inPerson=e.target.checked;st.shown=6;render()});
+$('#budget').addEventListener('input',function(e){st.budget=+e.target.value;st.shown=6;render()});
+$('#sort').addEventListener('change',function(e){st.sort=e.target.value;render()});
+(function(){
+  var h='';
+  WMETA.forEach(function(m){h+='<div class="wrow"><label for="w_'+m[0]+'"><span class="dot" style="background:var('+m[2]+')"></span>'+m[1]+'</label><span class="val" id="wv_'+m[0]+'"></span><input type="range" id="w_'+m[0]+'" min="0" max="100" step="5" value="'+st.w[m[0]]+'"></div>'});
+  $('#weights').innerHTML=h;
+  WMETA.forEach(function(m){$('#w_'+m[0]).addEventListener('input',function(e){st.w[m[0]]=+e.target.value;render()})});
+})();
+$('#resetW').addEventListener('click',function(){st.w=Object.assign({},DEFW);WMETA.forEach(function(m){$('#w_'+m[0]).value=st.w[m[0]]});render()});
+function setMode(m){st.mode=m;st.pinned=[];st.shown=6;render()}
+$('#mLaunch').addEventListener('click',function(){setMode('launch')});
+$('#mScale').addEventListener('click',function(){setMode('scale')});
+function toast(t){var el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2200)}
+
+/* ---------- rendering ---------- */
+function money(x){return '€'+(Math.abs(x-Math.round(x))<.05?Math.round(x):x.toFixed(1))}
+function initials(n){var p=n.split(' ');return (p[0][0]||'')+(p[1]?p[1][0]:'')}
+function card(c){
+  var sc=score(c),segs=WMETA.map(function(m){return '<i style="width:'+sc.parts[m[0]].toFixed(2)+'%;background:var('+m[2]+')" title="'+m[1]+' '+sc.parts[m[0]].toFixed(1)+'"></i>'}).join('');
+  var cp=cheapest(c),dl=c.delivery==='both'?'in person and online':c.delivery==='online'?'online':'in person';
+  var loc=c.city?c.city+', '+dl:'Online only';
+  var lv=c.levels.length>1?c.levels[0]+' to '+c.levels[c.levels.length-1]:c.levels[0];
+  var silent=c.resp>168,isNew=c.n<5&&c.joined<=60,pinned=st.pinned.indexOf(c.id)>=0;
+  var pills=[];
+  pills.push(c.verified?'<span class="pill ok">Verified</span>':'<span class="pill warn">Verification pending</span>');
+  pills.push(c.intro?'<span class="pill ok">Free intro call</span>':'<span class="pill">Paid intro call</span>');
+  if(isNew)pills.push('<span class="pill new">New</span>');
+  if(silent)pills.push('<span class="pill warn">Slow to reply</span>');
+  misses(c).forEach(function(x){pills.push('<span class="pill miss">'+esc(x)+'</span>')});
+  return '<article class="coach'+(silent?' dim':'')+'">'
+   +'<div class="chead"><div class="avatar" aria-hidden="true">'+esc(initials(c.name))+'</div><div><div class="cname">'+esc(c.name)+'</div><div class="cmeta">'+esc(c.sports.join(', '))+' · '+esc(loc)+'</div></div>'
+   +'<div class="cscore"><b>'+Math.round(sc.total)+'</b><div class="bar" aria-label="Score breakdown">'+segs+'</div></div></div>'
+   +'<p class="why">'+esc(why(c))+'</p>'
+   +'<dl class="fields">'
+   +'<div><dt>Specialty</dt><dd>'+esc(c.goals.slice(0,2).join(', '))+'</dd></div>'
+   +'<div><dt>Usually coaches</dt><dd>'+esc(lv)+'</dd></div>'
+   +'<div><dt>Packages from</dt><dd>'+money(cp.price)+'/mo · '+money(perWeek(cp))+'/wk</dd></div>'
+   +'<div><dt>Replies</dt><dd>~'+(c.resp>=48?Math.round(c.resp/24)+' days':c.resp+' h')+'</dd></div>'
+   +'<div><dt>Rating</dt><dd>'+(c.n?'★ '+c.rating.toFixed(1)+' · '+c.n+' reviews':'New, no reviews yet')+'</dd></div>'
+   +'<div><dt>Next start</dt><dd>'+(c.startDays?'In '+c.startDays+' days':'Today')+'</dd></div>'
+   +'<div><dt>Schedule</dt><dd>'+esc(c.sched.join(', '))+'</dd></div>'
+   +'<div><dt>Gender</dt><dd>'+esc(c.gender)+'</dd></div>'
+   +'<div><dt>Languages</dt><dd>'+esc(c.langs.join(', '))+'</dd></div>'
+   +'</dl>'
+   +'<div class="cfoot"><div class="pills">'+pills.join('')+'</div><button type="button" class="btn'+(pinned?' primary':'')+'" data-pin="'+c.id+'" aria-pressed="'+pinned+'">'+(pinned?'Pinned':'Compare')+'</button></div>'
+   +'</article>';
+}
+function sorted(list){
+  var arr=list.map(function(c){return {c:c,s:score(c).total}});
+  var key={match:function(a,b){return b.s-a.s},price:function(a,b){return minPrice(a.c)-minPrice(b.c)},rating:function(a,b){return smooth(b.c)-smooth(a.c)},start:function(a,b){return a.c.startDays-b.c.startDays}}[st.sort];
+  arr.sort(function(a,b){var ga=a.c.resp>168?1:0,gb=b.c.resp>168?1:0;if(ga!==gb)return ga-gb;return key(a,b)});
+  return arr.map(function(x){return x.c});
+}
+function relaxOption(cur){
+  var cands=[];
+  if(st.budget<400)cands.push(['Drop the budget limit',{budget:400}]);
+  if(st.lang!=='Any')cands.push(['Drop the language filter',{lang:'Any'}]);
+  if(st.gender!=='Any')cands.push(['Drop the gender filter',{gender:'Any'}]);
+  if(st.sched!=='Any')cands.push(['Drop the schedule filter',{sched:'Any'}]);
+  if(st.inPerson)cands.push(['Include online coaches',{inPerson:false}]);
+  if(st.where!=='Online')cands.push(['Search online coaches',{where:'Online',inPerson:false}]);
+  if(st.mustGoal)cands.push(['Treat the goal as a preference',{mustGoal:false}]);
+  if(st.mustLevel)cands.push(['Treat the level as a preference',{mustLevel:false}]);
+  var best=null;
+  cands.forEach(function(c){var n=countWith(c[1]);if(n>cur&&(!best||n>best.n))best={label:c[0],patch:c[1],n:n}});
+  return best;
+}
+var pendingRelax=null;
+function renderResults(){
+  var all=ds(),list,n;
+  var notice='',head='';
+  if(st.mode==='launch'){
+    list=sorted(all);n=all.length;
+    head=n+' coaches, ordered by fit';
+    notice='<div class="note"><span>Only 5 coaches are live, so nothing is filtered out. The list is ordered by fit and the Asten team can pick two coaches for the athlete by hand.</span><button type="button" class="btn primary" id="handMatch">Ask for a hand-picked match</button></div>';
+    pendingRelax=null;
+  }else{
+    var matched=all.filter(pass);n=matched.length;list=sorted(matched);
+    head=n+(n===1?' coach matches':' coaches match')+' <span class="small" style="font:400 14px var(--font-body)">of '+all.length+'</span>';
+    pendingRelax=null;
+    if(n<3){
+      var b=relaxOption(n);pendingRelax=b;
+      var lead=n===0?'No coach matches all of these answers.':'Only '+n+(n===1?' coach matches.':' coaches match.');
+      notice='<div class="note warn"><span>'+lead+(b?' '+b.label+' to see '+b.n+'.':' Try a different sport or city.')+'</span>'+(b?'<button type="button" class="btn primary" id="relax">Show '+b.n+'</button>':'')+'</div>';
+    }
+  }
+  $('#count').innerHTML=head;
+  $('#notice').innerHTML=notice;
+  var shown=st.mode==='launch'?list:list.slice(0,st.shown);
+  $('#list').innerHTML=shown.length?shown.map(card).join(''):'<div class="empty">Nothing to show yet. Change an answer on the left.</div>';
+  $('#more').innerHTML=(st.mode==='scale'&&list.length>shown.length)?'<div class="rowbetween"><span class="small">Showing '+shown.length+' of '+list.length+'</span><button type="button" class="btn" id="showMore">Show 6 more</button></div>':'';
+}
+function renderCompare(){
+  var el=$('#compare'),cs=st.pinned.map(find).filter(Boolean);
+  if(!cs.length){el.innerHTML='<h3>Side by side</h3><div class="empty">Pin up to three coaches with the Compare button. The package is the unit of comparison, so the price per week sits next to everything else that changes what the athlete gets.</div>';return}
+  var N=cs.length+1;
+  function row(label,fn,best){
+    var vals=cs.map(fn),min=null;
+    if(best)min=Math.min.apply(null,vals.map(function(v){return v.sort}));
+    return '<tr><td class="k">'+label+'</td>'+vals.map(function(v){return '<td'+(best&&v.sort===min&&cs.length>1?' class="best"':'')+'>'+v.t+'</td>'}).join('')+'</tr>';
+  }
+  var T=function(t){return {t:t}};
+  var h='<h3>Side by side</h3><div class="tablewrap"><table><thead><tr><th></th>'+cs.map(function(c){return '<th>'+esc(c.name)+' <button type="button" class="btn" data-pin="'+c.id+'" style="margin-left:6px">Remove</button></th>'}).join('')+'</tr></thead><tbody>';
+  h+=row('Best match score',function(c){return T(Math.round(score(c).total)+' of 100')});
+  h+=row('Rating',function(c){return T(c.n?'★ '+c.rating.toFixed(1)+' · '+c.n+' reviews':'New, no reviews yet')});
+  h+=row('Replies',function(c){return T('~'+(c.resp>=48?Math.round(c.resp/24)+' days':c.resp+' h'))});
+  h+=row('Next start',function(c){return T(c.startDays?'In '+c.startDays+' days':'Today')});
+  h+=row('Intro call',function(c){return T(c.intro?'Free':'Paid')});
+  h+=row('Schedule',function(c){return T(esc(c.sched.join(', ')))});
+  h+=row('Verified',function(c){return T(c.verified?'Yes':'Pending')});
+  [['Starter package',0],['Full coaching package',1]].forEach(function(g){
+    var i=g[1];
+    h+='<tr class="grp"><th colspan="'+N+'">'+g[0]+'</th></tr>';
+    h+=row('Name',function(c){return T(esc(c.pk[i].name))});
+    h+=row('Price per month',function(c){return T(money(c.pk[i].price))});
+    h+=row('Price per week',function(c){var p=perWeek(c.pk[i]);return {t:money(p),sort:p}},true);
+    h+=row('Duration',function(c){return T(c.pk[i].weeks+' weeks')});
+    h+=row('Feedback',function(c){return T(c.pk[i].feedback)});
+    h+=row('Calls per month',function(c){return T(String(c.pk[i].calls))});
+    h+=row('Race-day support',function(c){return T(c.pk[i].race?'Yes':'No')});
+    h+=row('Cancellation',function(c){return T(c.pk[i].cancel)});
+  });
+  el.innerHTML=h+'</tbody></table></div>';
+}
+function render(){
+  $('#mLaunch').setAttribute('aria-pressed',String(st.mode==='launch'));
+  $('#mScale').setAttribute('aria-pressed',String(st.mode==='scale'));
+  $('#modeCaption').textContent=st.mode==='launch'?'Nothing is hidden. Filters become sort order, and a person hand-matches early athletes.':'Hard filters remove coaches, counts show what each choice leaves, and the list says how to relax a filter.';
+  if(st.where==='Online')st.inPerson=false;
+  $('#inPerson').checked=st.inPerson;$('#inPerson').disabled=st.where==='Online';
+  $('#mustGoal').checked=st.mustGoal;$('#mustLevel').checked=st.mustLevel;
+  $('#budget').value=st.budget;$('#budgetVal').textContent='€'+st.budget+' / month';
+  WMETA.forEach(function(m){$('#wv_'+m[0]).textContent=st.w[m[0]]});
+  syncChips();renderResults();renderCompare();
+}
+var lastPin=null;
+document.addEventListener('click',function(e){
+  var t=e.target.closest?e.target.closest('button'):null;if(!t)return;
+  if(t.dataset.pin){
+    var id=t.dataset.pin,i=st.pinned.indexOf(id);
+    if(i>=0)st.pinned.splice(i,1);
+    else if(st.pinned.length>=3){toast('Three coaches at most. Remove one to add another.');return}
+    else st.pinned.push(id);
+    lastPin=id;render();
+    var b=document.querySelector('#list [data-pin="'+id+'"]');if(b)b.focus();
+  }else if(t.id==='showMore'){st.shown+=6;render()}
+  else if(t.id==='relax'&&pendingRelax){var p=pendingRelax.patch,k;for(k in p)st[k]=p[k];st.shown=6;render()}
+  else if(t.id==='handMatch'){toast('In the real product this opens a short form that the Asten team reads.')}
+});
+render();
+})();
+</script>
+
+</body></html>

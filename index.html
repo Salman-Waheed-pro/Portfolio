@@ -1,430 +1,513 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salman Waheed | Product, Marketing, & Engineering Hybrid</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* slate-900 */
-            color: #cbd5e1; /* slate-300 */
-        }
-        /* Custom accent color */
-        .text-accent {
-            color: #22d3ee; /* cyan-400 */
-        }
-        .bg-accent {
-            background-color: #22d3ee; /* cyan-400 */
-        }
-        .border-accent {
-            border-color: #22d3ee; /* cyan-400 */
-        }
-        /* Active nav link styling */
-        .nav-link.active {
-            color: #22d3ee; /* cyan-400 */
-            font-weight: 700;
-        }
-        /* Section fade-in on scroll */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salman Waheed</title>
+<meta name="description" content="Salman Waheed, software engineering student at TAMK in Finland. AI evaluation, data pipelines, production systems and the products around them.">
+<meta property="og:title" content="Salman Waheed">
+<meta property="og:description" content="Calm systems for noisy problems. AI evaluation, data pipelines, production systems.">
+<meta property="og:image" content="https://salman-waheed-pro.github.io/Portfolio/assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2EEE5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23F2EEE5'/%3E%3Cpath d='M5 19c4-6 8-6 11-3s7 3 11-3' stroke='%23C8431B' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2EEE5; --paper-2:#E8E2D5; --ink:#1A1916; --ink-2:#5C574D; --line:#D3CBBB;
+  --ember:#C8431B; --moss:#3D6A4C; --ember-soft:#F1D9CC;
+  --display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121110; --paper-2:#1C1A18; --ink:#ECE6DA; --ink-2:#A39C8E; --line:#34302B;
+    --ember:#F0704A; --moss:#7FB592; --ember-soft:#3A2119; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121110; --paper-2:#1C1A18; --ink:#ECE6DA; --ink-2:#A39C8E; --line:#34302B;
+  --ember:#F0704A; --moss:#7FB592; --ember-soft:#3A2119; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ember)}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:2px}
+::selection{background:var(--ember);color:var(--paper)}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.muted{color:var(--ink-2)}
+.shell{max-width:1180px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right))}
+@media (min-width:720px){.shell{padding:0 40px}}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body::after{mix-blend-mode:screen;opacity:.05}}
+:root[data-theme="dark"] body::after{mix-blend-mode:screen;opacity:.05}
+
+/* top bar */
+.top{position:absolute;top:0;left:0;right:0;z-index:5}
+.top .shell{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:20px}
+.top nav{display:flex;gap:18px;flex-wrap:wrap}
+.top nav a{text-decoration:none;color:var(--ink-2)}
+.top nav a:hover{color:var(--ember)}
+.mark{font-family:var(--display);font-size:22px;text-decoration:none;letter-spacing:.01em}
+.theme{background:none;border:1px solid var(--line);color:var(--ink-2);border-radius:999px;padding:6px 11px;cursor:pointer;min-height:32px}
+.theme:hover{color:var(--ember);border-color:var(--ember)}
+@media (max-width:640px){.top nav{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden}
+#field{position:absolute;inset:0;width:100%;height:100%;display:block;
+  -webkit-mask-image:linear-gradient(100deg,transparent 0 22%,#000 62%);mask-image:linear-gradient(100deg,transparent 0 22%,#000 62%)}
+.hero .shell{position:relative;z-index:2;width:100%;padding-bottom:56px;padding-top:120px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,8.4vw,120px);line-height:.95;letter-spacing:-.015em;margin:18px 0 0;max-width:10.5ch}
+.hero h1 em{color:var(--ember);font-style:italic}
+.hero .lede{max-width:34rem;margin-top:26px;font-size:19px;color:var(--ink-2)}
+.hero .lede b{color:var(--ink);font-weight:500}
+.dial{margin-top:40px;max-width:30rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px 14px}
+.dial label{grid-column:1/-1}
+.dial input{width:100%;accent-color:var(--ember);height:28px;margin:0}
+.dial .hint{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
+@media (max-width:720px){
+  #field{-webkit-mask-image:linear-gradient(180deg,#000 0 30%,transparent 62%);mask-image:linear-gradient(180deg,#000 0 30%,transparent 62%)}
+  .hero .shell{padding-top:40vh}
+}
+
+/* load reveal */
+.rise{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.45s}.d4{animation-delay:.65s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}}
+
+/* sections */
+section.block{padding:96px 0;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:44px}
+@media (min-width:900px){.sec-head{grid-template-columns:220px minmax(0,1fr);column-gap:20px;align-items:baseline}}
+.sec-head .num{color:var(--ember)}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,5vw,58px);line-height:1;margin:0;letter-spacing:-.01em}
+.indent{display:grid;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.indent{grid-template-columns:220px minmax(0,1fr);column-gap:20px}.indent>*{grid-column:2}}
+
+/* now */
+.now{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:34px 48px}
+.now h3{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1;margin:8px 0 10px}
+.now p{color:var(--ink-2)}
+.now p+p{margin-top:10px}
+
+/* work index */
+.work{border-top:1px solid var(--ink)}
+.item{border-bottom:1px solid var(--line)}
+.item summary{list-style:none;cursor:pointer;display:grid;gap:4px 20px;padding:22px 0;
+  grid-template-columns:56px minmax(0,1fr) 28px;align-items:baseline}
+.item summary::-webkit-details-marker{display:none}
+.item .yr{color:var(--ink-2)}
+.item .ttl{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);line-height:1.05;letter-spacing:-.005em}
+.item .one{grid-column:2;color:var(--ink-2);font-size:16px}
+.item .kind{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);white-space:nowrap}
+.tag.live{color:var(--moss);border-color:currentColor}
+.tag.priv{color:var(--ember);border-color:currentColor}
+.plus{grid-row:1;grid-column:3;justify-self:end;width:22px;height:22px;position:relative;align-self:center}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .35s ease}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.item[open] .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.item summary:hover .ttl{color:var(--ember)}
+@media (min-width:900px){
+  .item summary{grid-template-columns:220px minmax(0,1fr) 28px}
+}
+.case{display:grid;gap:26px 48px;padding:4px 0 40px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.case{grid-template-columns:220px minmax(0,1.45fr) minmax(0,1fr);column-gap:20px}.case>.body{grid-column:2;padding-right:28px}.case>.side{grid-column:3}}
+.case .body p+p{margin-top:14px}
+.case .body ul{margin:14px 0 0;padding-left:18px}
+.case .body li+li{margin-top:6px}
+.case .side{display:flex;flex-direction:column;gap:18px;font-size:15px}
+.case .side dt{color:var(--ink-2);margin-bottom:4px}
+.case .side dd{margin:0}
+.case .side dl{margin:0;display:flex;flex-direction:column;gap:16px}
+.links{display:flex;flex-direction:column;gap:6px}
+.links a{font-weight:500}
+.pull{font-family:var(--display);font-style:italic;font-size:24px;line-height:1.25;color:var(--ink);border-left:2px solid var(--ember);padding-left:16px;margin-top:18px}
+.fig{margin:18px 0 0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--paper-2)}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{font-size:13px;color:var(--ink-2);padding:8px 12px}
+
+/* principles */
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:0;border-top:1px solid var(--ink)}
+.principles div{padding:22px 22px 26px 0;border-bottom:1px solid var(--line)}
+.principles .n{color:var(--ember)}
+.principles h3{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.1;margin:10px 0 8px}
+.principles p{color:var(--ink-2);font-size:16px}
+.also{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:26px 48px}
+.also h3{font-size:17px;font-weight:600;margin:0 0 4px}
+.also p{color:var(--ink-2);font-size:16px}
+
+/* contact */
+.contact h2.big{font-family:var(--display);font-weight:400;font-size:clamp(40px,7vw,96px);line-height:.98;margin:0;max-width:14ch}
+.contact h2.big em{color:var(--ember)}
+.reach{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+.reach a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:500}
+.reach a.primary{background:var(--ink);color:var(--paper)}
+.reach a:hover{background:var(--ember);border-color:var(--ember);color:var(--paper)}
+footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink-2);font-size:14px}
+footer .shell{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-80 backdrop-blur-md border-b border-slate-700">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-xl font-bold text-white">Salman Waheed</a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#about" class="nav-link text-slate-300 hover:text-accent transition-colors">About</a>
-                <a href="#strengths" class="nav-link text-slate-300 hover:text-accent transition-colors">Strengths</a>
-                <a href="#work" class="nav-link text-slate-300 hover:text-accent transition-colors">Work</a>
-                <a href="#contact" class="nav-link text-slate-300 hover:text-accent transition-colors">Contact</a>
-            </nav>
-            <a href="mailto:salman.waheed@tuni.fi" target="_blank" rel="noopener noreferrer" class="hidden md:block bg-accent text-slate-900 font-bold px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all">
-                Get In Touch
-            </a>
-            <!-- Mobile Menu (optional, for simplicity we'll hide nav on mobile for now) -->
+<header class="top">
+  <div class="shell">
+    <a class="mark" href="#top" aria-label="Salman Waheed, back to top">S.W.</a>
+    <nav class="mono" aria-label="Sections">
+      <a href="#now">Now</a><a href="#work">Work</a><a href="#how">How I work</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="theme mono" id="theme" type="button" aria-label="Switch colour theme">Dark</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Introduction">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="shell">
+    <p class="mono muted rise d1">Salman Waheed &middot; Software engineer &middot; Tampere, Finland</p>
+    <h1 class="rise d2">Calm systems for <em>noisy</em> problems.</h1>
+    <p class="lede rise d3">I take something messy, a market nobody has mapped, a business running on spreadsheets, an AI that answers confidently and wrong, and give it a structure that holds. <b>Then I measure whether it did.</b> Final-year Software Engineering at TAMK.</p>
+    <div class="dial rise d4">
+      <label class="mono muted" for="order">Noise &harr; pattern</label>
+      <span class="mono muted" aria-hidden="true">noise</span>
+      <input id="order" type="range" min="0" max="100" value="72" aria-describedby="dialhint">
+      <span class="mono muted" aria-hidden="true">pattern</span>
+      <p class="hint" id="dialhint">Drag it. Run your cursor through the field and it scatters, then finds its way back. Most of my work happens somewhere in the middle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="now">
+  <div class="shell">
+    <div class="sec-head"><span class="mono num">01 / Now</span><h2>What I'm working on</h2></div>
+    <div class="indent"><div class="now">
+      <div>
+        <span class="mono muted">Thesis, 2026 to 2027</span>
+        <h3>Why do AI answers drift from what people need?</h3>
+        <p>An answer can be correct and still too long, too vague, or useless for the problem in front of you. My thesis separates correctness, concreteness and value, traces the gap back to how the model generates text, and tests a fix against whichever cause dominates.</p>
+        <p>I'm talking with TAMK's SIX ManuGenius project (generative AI in manufacturing) about grounding this in a real industrial case.</p>
+      </div>
+      <div>
+        <span class="mono muted">Open to</span>
+        <h3>A paid thesis and English-language AI or software roles in Finland.</h3>
+        <p>The work I'm best at: data pipelines that end in a decision, AI systems with a proper test set behind them, and the product work that decides what gets built.</p>
+        <p>Finnish: A1, learning.</p>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="block" id="work">
+  <div class="shell">
+    <div class="sec-head"><span class="mono num">02 / Work</span><h2>Selected work, newest first</h2></div>
+    <div class="indent"><p class="muted" style="max-width:40rem;margin-bottom:28px">Open any row for the full story. Two of these run on client data, so their code stays private; everything else links to public code or a live page.</p></div>
+
+    <div class="work">
+
+      <details class="item" id="beaconmed">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">BeaconMed</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">An ERP for pharmaceutical distributors in Pakistan, deployed and in testing with a pilot client.</span>
+          <span class="kind"><span class="tag live">Deployed</span><span class="tag">Architecture</span><span class="tag">Infrastructure</span><span class="tag priv">Private code</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>A pharmaceutical distributor was running invoices, batch stock and customer credit on spreadsheets and an old desktop app. Pakistani sales-tax law (Section 23) and DRAP rules decide what every invoice has to carry, and expiry dates decide which batch ships first. Getting either wrong is a legal problem, not a UX one.</p>
+            <p>I'm the product owner, architect and the person who runs the server. An AI coding agent wrote most of the code. I wrote the requirements, designed the system, reviewed every one of roughly 85 merged pull requests before it went in, and hardened and operate the infrastructure.</p>
+            <ul>
+              <li>Multi-tenant from day one, with Postgres row-level security so one distributor can never read another's data, even through a bug in the API.</li>
+              <li>First-expiry-first-out batch allocation in the warehouse.</li>
+              <li>An offline-first mobile app for salesmen in the field, since connectivity there can't be assumed.</li>
+              <li>Docker Compose behind Caddy, Cloudflare in front, Tailscale for admin access, encrypted backups to off-site storage. About &euro;10.50 a month to run.</li>
+            </ul>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Role</dt><dd>Product owner, architect, operator</dd></div>
+            <div><dt class="mono">Stack</dt><dd>Node.js, Fastify, PostgreSQL 17 with RLS, React + Vite, Expo + WatermelonDB, Docker, Caddy, Cloudflare, Tailscale, restic</dd></div>
+            <div><dt class="mono">Status</dt><dd>Deployed on a hardened server in Helsinki, in testing with the pilot client</dd></div>
+          </dl>
         </div>
-    </header>
+      </details>
 
-    <main class="container mx-auto px-6 pt-24 md:pt-32">
-
-        <!-- Section 1: Hero -->
-        <section id="hero" class="min-h-[80vh] flex items-center fade-in-section is-visible">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">
-                    Hi, I’m Salman Waheed.
-                </h1>
-                <h2 class="text-2xl md:text-3xl font-bold text-accent mt-4">
-                    I build impact-driven solutions across Product, Marketing, and Engineering.
-                </h2>
-                <p class="text-lg md:text-xl text-slate-400 mt-6">
-                    Hybrid Problem Solver | Builder | Communicator
-                </p>
-                <div class="mt-10 flex gap-4 justify-center">
-                    <a href="#work" class="bg-accent text-slate-900 font-bold px-8 py-3 rounded-lg hover:bg-opacity-80 transition-all text-lg">
-                        View My Work
-                    </a>
-                    <a href="#contact" class="border-2 border-slate-600 text-slate-300 font-bold px-8 py-3 rounded-lg hover:border-slate-400 hover:text-white transition-all text-lg">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: About Me & Philosophy -->
-        <section id="about" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
-            <div class="grid md:grid-cols-3 gap-16">
-                <div class="md:col-span-1">
-                    <h2 class="text-3xl font-bold text-white mb-4">
-                        My Journey
-                    </h2>
-                    <p class="text-lg text-accent font-medium">
-                        My strength has always been connecting the dots - not just coding, not just designing, not just writing, but understanding how everything interacts.
-                    </p>
-                </div>
-                <div class="md:col-span-2 space-y-6 text-lg text-slate-300">
-                    <p>
-                        I am an impact-focused problem solver who works at the intersection of product, marketing, and engineering. My strength lies in transforming vague goals into actionable plans, connecting the dots between technical constraints and user experience, and building solutions that actually make a difference.
-                    </p>
-                    <p>
-                        When I joined my last role, I wasn't given tasks. I was given problems. "We need an affiliate structure." That's all they said. I turned that vague concept into a fully functioning system: requirements → user journeys → design → execution.
-                    </p>
-                    <p>
-                        My value isn’t in one domain. <strong class="text-white">My value is in combining domains.</strong> This hybrid identity allows me to reduce unnecessary iterations, increase pace, and keep teams aligned and moving with clarity.
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-20 md:mt-28">
-                <h3 class="text-2xl font-bold text-white text-center mb-12">
-                    My Approach to Work
-                </h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Philosophy Card 1 -->
-                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                        <h4 class="text-lg font-bold text-white">Build for Impact</h4>
-                        <p class="text-slate-400 mt-2">Make decisions based on what creates real value, not just activity.</p>
-                    </div>
-                    <!-- Philosophy Card 2 -->
-                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                        <h4 class="text-lg font-bold text-white">Increase Clarity</h4>
-                        <p class="text-slate-400 mt-2">If a task is vague, define it. If it's complex, simplify it.</p>
-                    </div>
-                    <!-- Philosophy Card 3 -->
-                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                        <h4 class="text-lg font-bold text-white">Always Know the "Why"</h4>
-                        <p class="text-slate-400 mt-2">Never separate technical execution from the user it's for.</p>
-                    </div>
-                    <!-- Philosophy Card 4 -->
-                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                        <h4 class="text-lg font-bold text-white">Own the Problem</h4>
-                        <p class="text-slate-400 mt-2">Take ownership, ask the right questions, and build with purpose.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Core Hybrid Strengths -->
-        <section id="strengths" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
-            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-                Core Hybrid Strengths
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- Product Column -->
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
-                    <div class="flex items-center gap-3 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                        <h3 class="text-2xl font-bold text-white">Product</h3>
-                    </div>
-                    <ul class="space-y-3 text-slate-300">
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Turning abstract ideas into structured execution plans</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Mapping user journeys, designing flows, and identifying bottlenecks</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Always considering personas, UX logic, and the “why” behind features</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Project & product management experience (Jira, Confluence)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Marketing Column -->
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
-                    <div class="flex items-center gap-3 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.144-6.099A1.76 1.76 0 003.5 12.118V11.882c0-.675.283-1.3.76-1.74l3.806-3.806a1.76 1.76 0 012.49.071l3.59 3.59a1.76 1.76 0 01.07 2.49l-3.805 3.806z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.144-6.099A1.76 1.76 0 003.5 12.118V11.882c0-.675.283-1.3.76-1.74l3.806-3.806a1.76 1.76 0 012.49.071l3.59 3.59a1.76 1.76 0 01.07 2.49l-3.805 3.806z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.122 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.144-6.099A1.76 1.76 0 0011.5 12.118V11.882c0-.675.283-1.3.76-1.74l3.806-3.806a1.76 1.76 0 012.49.071l3.59 3.59a1.76 1.76 0 01.07 2.49l-3.805 3.806z" />
-                        </svg>
-                        <h3 class="text-2xl font-bold text-white">Marketing</h3>
-                    </div>
-                    <ul class="space-y-3 text-slate-300">
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Copywriting (emails, social captions, branding)</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Built affiliate and referral systems from scratch</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Content creation (reels, Canva, CapCut)</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Achieved up to 20k reach on Facebook for a niche academic startup</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Email flows with above-average open rates</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Engineering Column -->
-                <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
-                    <div class="flex items-center gap-3 mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        <h3 class="text-2xl font-bold text-white">Engineering</h3>
-                    </div>
-                    <ul class="space-y-3 text-slate-300">
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Built a mini recommendation-product (EU funding call matcher)</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Web scraping with Selenium & automation pipeline design</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Problem-solving, debugging, logic-first mindset</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>Programming: Java (strong), C++ (OOP), Python (applied)</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-accent font-bold">✓</span>
-                            <span>React basics, DevOps basics, Git teamwork</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Featured Work & Experience -->
-        <section id="work" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
-            <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-                Featured Work & Experience
-            </h2>
-
-            <div class="space-y-16">
-
-                <!-- Work Item 1: Aveksana -->
-                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
-                        <span class="text-sm font-bold text-accent uppercase">Startup Experience</span>
-                        <h3 class="text-2xl font-bold text-white mt-2">Hybrid Intern @ Aveksana</h3>
-                        <p class="text-lg text-slate-300 mt-4">
-                            At a startup serving academia & R&D, I wore many hats, taking on open-ended tasks and delivering end-to-end solutions. I acted as the bridge between the technical team, product team, and users.
-                        </p>
-                        <div class="mt-6 space-y-2">
-                            <p class="font-medium text-white">Key Contributions:</p>
-                            <ul class="list-disc list-inside text-slate-400 space-y-1">
-                                <li>Designed and built the complete affiliate & referral system</li>
-                                <li>Created email marketing flows (onboarding, branding, positioning)</li>
-                                <li>Drove 20k organic reach on Facebook through strategic content</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-white">From Vague Problem to Full System</h4>
-                        <p class="text-lg text-slate-300 mt-4">
-                            This role defined my hybrid approach. I wasn't just executing tasks; I was solving core business problems. Building the affiliate system required product thinking (user flows), marketing (incentives), and technical logic (implementation)
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Work Item 2: EU Funding Pipeline -->
-                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <div class="p-8 md:order-2">
-                        <h4 class="text-xl font-bold text-white">From Manual Search to Mini-Product</h4>
-                        <p class="text-lg text-slate-300 mt-4">
-                            This project proved I could build a functional, data-driven product. It involved scraping, automated filtering, and a matching algorithm to compare user profiles against thousands of proposals. It was a clear demonstration of cross-functional thinking.
-                        </p>
-                    </div>
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 md:order-1">
-                        <span class="text-sm font-bold text-accent uppercase">Technical Project</span>
-                        <h3 class="text-2xl font-bold text-white mt-2">EU Funding Recommendation Pipeline</h3>
-                        <p class="text-lg text-slate-300 mt-4">
-                            Built an automated data pipeline that scraped thousands of open proposal calls for EU funding, filtered them, and delivered personalized recommendations inside the platform dashboard.
-                        </p>
-                        <div class="mt-6 space-y-2">
-                            <p class="font-medium text-white">Impact & Tech:</p>
-                            <ul class="list-disc list-inside text-slate-400 space-y-1">
-                                <li>Replaced hours of manual search for users</li>
-                                <li>Enabled automatic discovery of relevant opportunities</li>
-                                <li><strong class="text-slate-300">Tech:</strong> Python, Selenium, custom filtering logic</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Other Experience -->
-                <div class="pt-16">
-                    <h3 class="text-2xl font-bold text-white text-center mb-10">Additional Experience</h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Card 1 -->
-                        <div class_alias="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                            <h4 class="text-lg font-bold text-white">PM & Product Coursework</h4>
-                            <p class="text-slate-400 mt-2">Led a student team using Jira & Confluence to plan, develop, and deliver a software MVP (task manager).</p>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class_alias="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                            <h4 class="text-lg font-bold text-white">Social Media Manager</h4>
-                            <p class="text-slate-400 mt-2">Managed content creation, scheduling, and caption writing for a consultancy, optimizing for reach.</p>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class_alias="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                            <h4 class="text-lg font-bold text-white">Academic & Research Writing</h4>
-                            <p class="text-slate-400 mt-2">IBDP Extended Essay (Grade A) and 5/5 in university course "Writing Scientific Reports in English."</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Section 5: Contact -->
-        <section id="contact" class="py-20 md:py-32 border-t border-slate-800 fade-in-section">
-            <div class="text-center max-w-2xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">
-                    Let's Talk... Soon:)
-                </h2>
-                <p class="text-lg text-slate-300 mt-6">
-                    I'm always looking for new challenges and opportunities to build impactful, transparent solutions. If you're interested in my hybrid approach, I'd love to chat.
-                </p>
-                <p class="text-lg text-slate-400 italic mt-6">
-                    Do you prefer the mental peace of working with a fully-committed teammate, or the drag of second-guessing someone's contribution?
-                </p>
-                <div class="mt-12 flex flex-col md:flex-row gap-6 justify-center">
-                    <!-- IMPORTANT: Replace placeholders below -->
-                    <a href="mailto:salman.waheed@tuni.fi" class="bg-accent text-slate-900 font-bold px-8 py-4 rounded-lg hover:bg-opacity-80 transition-all text-lg flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M2.003 5.884L10 11.884l7.997-6M2 18h16V6l-8 5-8-5v12z" />
-                        </svg>
-                        salman.waheed@tuni.fi
-                    </a>
-                    <a href="https://share.google/G7WyuSJbxoluVj1DS" target="_blank" rel="noopener noreferrer" class="bg-slate-700 text-white font-bold px-8 py-4 rounded-lg hover:bg-slate-600 transition-all text-lg flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                        LinkedIn Profile
-                    </a>
-                    <a href="https://github.com/Salman-Waheed-pro" target="_blank" rel="noopener noreferrer" class="bg-slate-700 text-white font-bold px-8 py-4 rounded-lg hover:bg-slate-600 transition-all text-lg flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.016-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.384-1.333-1.754-1.333-1.754-1.087-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.833 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.335-5.467-5.932 0-1.31.468-2.38 1.236-3.22-.124-.304-.536-1.527.117-3.176 0 0 1.008-.322 3.3 1.23a11.46 11.46 0 0 1 3.003-.404c1.018.004 2.044.137 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.655 1.649.243 2.872.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.609-2.807 5.624-5.48 5.921.43.372.814 1.103.814 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576 4.765-1.587 8.2-6.082 8.2-11.384 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub Profile
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 mt-16">
-        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
-            <p>&copy; 2025 Salman Waheed. Built to make an impact.</p>
+      <details class="item" id="oppipolku">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">Oppipolku</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">Market intelligence for continuing education: should we launch this programme, and at what price?</span>
+          <span class="kind"><span class="tag">Product</span><span class="tag">Data pipeline</span><span class="tag">LLM assistant</span><span class="tag priv">Private code</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>Universities price continuing-education programmes from cost and launch them on instinct. Our design partner, an executive-education unit in Istanbul, had cancelled a leadership programme after launch because too few people enrolled. The data that could have warned them was public, just scattered across hundreds of competitor pages.</p>
+            <p>Oppipolku turns those pages into an answer. Scrapers collect programme listings, each record keeps its source URL and capture date, names are normalised and matched across institutions (ambiguous matches go to a human, never a guess), and the pipeline produces demand and pricing signals and a one-page launch assessment. An assistant sits on top, but every number it quotes comes from server-side tools, so it can't make one up.</p>
+            <p>The Finnish version is an LLM assistant for open-education questions, now being tested with staff at TAMK.</p>
+            <p class="pull">Every number traces back to a URL. That rule shaped the whole architecture.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Role</dt><dd>Product owner, delivery lead, UX and sales, and the client relationship. Built with two teammates on engineering and security review; most of the work on the project is mine.</dd></div>
+            <div><dt class="mono">Stack</dt><dd>Python scrapers, SQLite with provenance tables, entity resolution, FastAPI, OpenWebUI tool calling</dd></div>
+          </dl>
         </div>
-    </footer>
+      </details>
 
-    <!-- Scroll-to-Top Button (optional) -->
-    <button id="to-top" class="fixed bottom-8 right-8 bg-accent p-3 rounded-full text-slate-900 shadow-lg hidden opacity-0 transition-all hover:bg-opacity-80" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-        </svg>
-    </button>
+      <details class="item" id="asten">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">Asten coach finder</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">Helping an athlete pick one coach they're still training with eight weeks later.</span>
+          <span class="kind"><span class="tag">Product design</span><span class="tag">Data model</span><span class="tag">Workshop</span><span class="tag live">Interactive</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>A workshop brief: design how athletes on the Asten app find and compare coaches, so it works with 5 coaches at launch and 500 later. I treated it as a matching problem with a search box attached. A short intake removes coaches who are useless for this athlete (wrong sport, place, language, budget or no free slots), and everything else only changes the order.</p>
+            <p>The page has the full journey as a swimlane, the data model, a working filter-and-rank demo you can play with, what changes between 5 and 500 coaches, the build order, the metrics, and the questions I'd ask the company before writing code.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Context</dt><dd>Made in a team workshop. This design and page are my own work.</dd></div>
+            <div class="links"><dt class="mono">See it</dt><dd class="links"><a href="work/asten-coach-finder.html">Open the interactive design &rarr;</a></dd></div>
+          </dl>
+        </div>
+      </details>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const toTopButton = document.getElementById('to-top');
+      <details class="item" id="real-estate">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">Pakistan real estate AI</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">Price prediction and budget-matched recommendations over 45 MB of property listings.</span>
+          <span class="kind"><span class="tag">Machine learning</span><span class="tag">Streamlit</span><span class="tag live">Public code</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>I picked a market I know well enough to tell when the model is wrong. The pipeline cleans the listings (including converting Pakistani area units), trains a Random Forest and an XGBoost model, and a Streamlit app predicts a fair price and ranks listings that look underpriced for a given budget.</p>
+            <p>Random Forest won on all three metrics without tuning: R&sup2; 0.885 against 0.866, and a mean error of PKR 2.46M against 2.84M.</p>
+            <p>The part I find most useful is a flaw. A neighbourhood the model never saw in training isn't rejected; it silently falls back to whichever location sorts first alphabetically, and gets priced as somewhere else. The model looks confident for exactly the users it knows least about. I kept it in and documented it, because that failure is the reason my thesis is about evaluation.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Stack</dt><dd>Python, pandas, scikit-learn, XGBoost, Streamlit</dd></div>
+            <div><dt class="mono">Result</dt><dd>R&sup2; 0.885 on held-out data</dd></div>
+            <div><dt class="mono">Code</dt><dd class="links"><a href="https://github.com/Salman-Waheed-pro/pakistan-real-estate-ai">github.com/&hellip;/pakistan-real-estate-ai</a></dd></div>
+          </dl>
+        </div>
+      </details>
 
-            // --- Section Fade-in Logic ---
-            const fadeInObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+      <details class="item" id="governance">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">SDLC governance for coding agents</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">A lifecycle an AI coding agent has to follow, with gates it can't talk its way past.</span>
+          <span class="kind"><span class="tag">Developer tooling</span><span class="tag">Claude Code plugin</span><span class="tag live">Public code</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>Coding agents are fast and agreeable, which is a bad combination for the boring checks that keep production safe. I wrote a file-based operating system for software projects: phases from inception to operations, each with deliverables and hard gates, and a verification rule for every deliverable (a file that must exist, a command that must pass, a pattern that must not appear). The agent has to find evidence in the repository before it ticks anything off, and the files become the audit trail.</p>
+            <p>The second version packages it as a Claude Code plugin with two commands: <code>/govern</code> runs the current phase, and <code>/inspect</code> is a read-only auditor that checks the project for completeness and sweeps it against the OWASP Top 10. I built it while running BeaconMed, which is where the gates came from.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Built with</dt><dd>Markdown, Claude Code plugin format; works with any agent that reads a rules file</dd></div>
+            <div><dt class="mono">Code</dt><dd class="links"><a href="https://github.com/Salman-Waheed-pro/govern-plugin">govern-plugin</a><a href="https://github.com/Salman-Waheed-pro/sdlc-governance-system">sdlc-governance-system</a></dd></div>
+          </dl>
+        </div>
+      </details>
 
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                fadeInObserver.observe(section);
-            });
+      <details class="item" id="dewon">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">Dewon Fried Chicken</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">Website and growth work for a Korean fried-chicken restaurant in Tampere.</span>
+          <span class="kind"><span class="tag">Web</span><span class="tag">Growth</span><span class="tag live">Live</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>A restaurant's site has one job: turn a local search into an order, a booking or a walk-in. I built seven pages in plain HTML, CSS and JavaScript with no build step, no CDN and no third-party requests, so it loads fast on a phone and passes strict security headers. Every business detail (hours, phone, links, the seven sauces) lives in one config file the owner can edit.</p>
+            <p>The order button opens a chooser instead of a checkout: delivery apps, direct order on WhatsApp, takeaway, a table, or a group booking. Around the site I did the growth side too: competitor and menu analysis, a partner and retail playbook, an influencer playbook and a KPI sheet.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Stack</dt><dd>HTML, CSS, vanilla JS, Vercel, CSP and HSTS</dd></div>
+            <div><dt class="mono">See it</dt><dd class="links"><a href="https://dewon-website.vercel.app">dewon-website.vercel.app</a><a href="https://github.com/Salman-Waheed-pro/Dewon-website">Source code</a></dd></div>
+          </dl>
+        </div>
+      </details>
 
-            // --- Active Nav Link & Scroll-to-Top Logic ---
-            window.addEventListener('scroll', () => {
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (window.pageYOffset >= sectionTop - 150) { // 150px offset
-                        current = section.getAttribute('id');
-                    }
-                });
+      <details class="item" id="cloudberry">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">Cloudberry Scout</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">Ranking Finnish mires by how likely they are to hold a good cloudberry harvest.</span>
+          <span class="kind"><span class="tag">Geospatial</span><span class="tag">Remote sensing</span><span class="tag live">Public code</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p>I pick cloudberries, and every map app shows a hundred identical swamp symbols. This pipeline fuses Finnish open data into a ranked short list with a column for each reason a bog scored the way it did: distance from drainage ditches, peatland site type, openness and moisture from Sentinel-2, flatness and hummocks from LiDAR, and frost risk scaled by this year's weather.</p>
+            <p>It's upfront about its ceiling. Only female cloudberry plants fruit, and ripeness is a timing problem, so no satellite can promise a full bucket. The score is better odds per bog visited, and it says so in the first paragraph of the README.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Stack</dt><dd>Python, GeoPandas, rasterio, Sentinel-2 via Planetary Computer, NLS, GTK and FMI open data</dd></div>
+            <div><dt class="mono">Code</dt><dd class="links"><a href="https://github.com/Salman-Waheed-pro/cloudberry-scout">github.com/&hellip;/cloudberry-scout</a></dd></div>
+          </dl>
+        </div>
+      </details>
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
+      <details class="item" id="aveksana">
+        <summary>
+          <span class="mono yr">2026</span>
+          <span class="ttl">Aveksana: funding search, agents, growth</span>
+          <span class="plus" aria-hidden="true"></span>
+          <span class="one">Software for universities and research organisations. I was handed problems, not tasks.</span>
+          <span class="kind"><span class="tag">Data pipeline</span><span class="tag">AI agents</span><span class="tag">B2B sales</span><span class="tag priv">Private code</span></span>
+        </summary>
+        <div class="case">
+          <div class="body">
+            <p><strong>Funding-call search (Artha).</strong> Researchers were searching EU, Finnish and Swedish funding portals by hand. I built the pipeline that pulls open calls from EU Funding &amp; Tenders (Selenium), Research.fi (OAuth2 API) and Vinnova (REST), normalises them into one schema, stores them in ChromaDB and serves semantic search through a FastAPI endpoint. I then scoped the extension to Austria and the UK, where the free APIs only list grants already awarded, so open calls have to be scraped.</p>
+            <p><strong>AI agents.</strong> Two production Copilot Studio agents: one benchmarking university enrolment data across Finland and Istanbul, one segmenting audiences for executive education.</p>
+            <p><strong>Growth and sales.</strong> Designed the affiliate and referral system from a one-line brief, wrote the onboarding email flows, reached 20,000 people organically on Facebook, ran a high volume of product demos, and turned a resistant prospect into a university pilot.</p>
+          </div>
+          <dl class="side">
+            <div><dt class="mono">Stack</dt><dd>Python, Selenium, OAuth2, ChromaDB, FastAPI, Copilot Studio, Brevo</dd></div>
+            <div><dt class="mono">Role</dt><dd>Hybrid intern across engineering, product and growth</dd></div>
+          </dl>
+        </div>
+      </details>
 
-                // --- To-Top Button Visibility ---
-                if (window.scrollY > 400) {
-                    toTopButton.classList.remove('hidden');
-                    toTopButton.classList.add('opacity-100');
-                } else {
-                    toTopButton.classList.remove('opacity-100');
-                    setTimeout(() => {
-                        toTopButton.classList.add('hidden');
-                    }, 300); // Match transition duration
-                }
-            });
-        });
-    </script>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="shell">
+    <div class="sec-head"><span class="mono num">03 / How I work</span><h2>Ambition, with a test set</h2></div>
+    <div class="indent">
+      <div class="principles">
+        <div><span class="mono n">i</span><h3>Build it before I claim it</h3><p>If a skill isn't on a real project yet, I build a small one first. The CV comes after the commit.</p></div>
+        <div><span class="mono n">ii</span><h3>Measure the thing, not the demo</h3><p>A demo shows the best case. A hundred checked questions and an error taxonomy show where it breaks, and that's what people need to trust it.</p></div>
+        <div><span class="mono n">iii</span><h3>Say the hard constraint early</h3><p>Data that can't leave a factory, a law about invoices, a Finnish level of A1. Easier to design around on day one than to discover in week six.</p></div>
+        <div><span class="mono n">iv</span><h3>Treat AI output like a pull request</h3><p>I work with coding agents every day. Their code gets the same reading, testing and gates a teammate's would, and the decisions stay with me.</p></div>
+      </div>
+      <div class="also">
+        <div><h3>Languages and tools</h3><p>Python, Java, SQL, JavaScript and Node.js, React, HTML and CSS. PostgreSQL, ChromaDB, Docker, FastAPI, scikit-learn, GeoPandas.</p></div>
+        <div><h3>Before software</h3><p>Social media management for a consultancy, and a student team I led through a task-manager MVP with Jira and Confluence. IB Extended Essay, grade A.</p></div>
+        <div><h3>Studies</h3><p>Software Engineering (BEng), Tampere University of Applied Sciences, 2023 to 2027. Grade 5/5 in Writing Scientific Reports in English.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="shell">
+    <div class="sec-head"><span class="mono num">04 / Contact</span><span></span></div>
+    <div class="indent">
+      <div>
+        <h2 class="big">Got a noisy problem? <em>Tell me about it.</em></h2>
+        <div class="reach">
+          <a class="primary" href="mailto:salman.waheed@tuni.fi">salman.waheed@tuni.fi</a>
+          <a href="https://share.google/G7WyuSJbxoluVj1DS" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Salman-Waheed-pro" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell">
+    <span>Salman Waheed &middot; Helsinki and Tampere, Finland</span>
+    <span>Written by hand. No framework, no tracking.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  function stored(){try{return localStorage.getItem('theme')}catch(e){return null}}
+  function apply(t){if(t){root.setAttribute('data-theme',t)}else{root.removeAttribute('data-theme')}label()}
+  function current(){var t=root.getAttribute('data-theme');if(t)return t;return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+  function label(){btn.textContent=current()==='dark'?'Light':'Dark'}
+  apply(stored());
+  btn.addEventListener('click',function(){var n=current()==='dark'?'light':'dark';apply(n);try{localStorage.setItem('theme',n)}catch(e){}});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',label);
+
+  // open a case study from the URL hash
+  function openHash(){var h=location.hash.slice(1);if(!h)return;var el=document.getElementById(h);if(el&&el.tagName==='DETAILS'){el.open=true}}
+  openHash();window.addEventListener('hashchange',openHash);
+
+  // the field: particles follow a smooth flow (pattern) blended with random walk (noise)
+  var cv=document.getElementById('field'), cx=cv.getContext('2d');
+  var slider=document.getElementById('order');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W,H,DPR,P=[],t=0,mouse={x:-1e4,y:-1e4,vx:0,vy:0};
+  var col={};
+  function readColors(){var s=getComputedStyle(root);col.paper=s.getPropertyValue('--paper').trim();col.ink=s.getPropertyValue('--ink').trim();col.ember=s.getPropertyValue('--ember').trim();col.moss=s.getPropertyValue('--moss').trim()}
+  function hexA(h,a){h=h.replace('#','');var n=parseInt(h,16);return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'}
+  function size(){
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    var r=cv.getBoundingClientRect();W=r.width;H=r.height;
+    cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);
+    var n=Math.round(Math.min(1400,Math.max(350,W*H/1100)));
+    P=[];for(var i=0;i<n;i++){P.push(spawn({}))}
+    readColors();cx.fillStyle=col.paper;cx.fillRect(0,0,W,H);
+  }
+  function spawn(p){p.x=Math.random()*W;p.y=Math.random()*H;p.life=200+Math.random()*400;var r=Math.random();p.c=r<.06?'ember':r<.12?'moss':'ink';return p}
+  function flow(x,y){ // a calm field: long waves that drift slowly
+    var a=Math.sin(x*0.0021+t*0.00035)*1.3+Math.cos(y*0.0034-t*0.0002)*1.1+Math.sin((x+y)*0.0012)*0.6;
+    return a*0.9-0.25;
+  }
+  function step(){
+    var order=slider.value/100, chaos=1-order;
+    cx.globalCompositeOperation='source-over';
+    cx.fillStyle=hexA(col.paper,0.045+0.06*chaos);cx.fillRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){
+      var p=P[i],ox=p.x,oy=p.y;
+      var a=flow(p.x,p.y)+(Math.random()-.5)*Math.PI*2*chaos*chaos*1.4;
+      var sp=0.7+chaos*1.6;
+      var dx=p.x-mouse.x,dy=p.y-mouse.y,d2=dx*dx+dy*dy;
+      if(d2<14000){var f=(1-d2/14000);a+= (Math.random()-.5)*Math.PI*2*f;sp+=f*4;p.x+=dx*f*0.04;p.y+=dy*f*0.04}
+      p.x+=Math.cos(a)*sp;p.y+=Math.sin(a)*sp;
+      if(--p.life<0||p.x<-5||p.x>W+5||p.y<-5||p.y>H+5){spawn(p);continue}
+      cx.strokeStyle=hexA(col[p.c],p.c==='ink'?0.22:0.55);
+      cx.lineWidth=p.c==='ink'?0.7:1.1;
+      cx.beginPath();cx.moveTo(ox,oy);cx.lineTo(p.x,p.y);cx.stroke();
+    }
+    t+=16;
+  }
+  var running=false,visible=true;
+  function loop(){if(!visible){running=false;return}step();requestAnimationFrame(loop)}
+  function start(){if(!running&&!reduce){running=true;requestAnimationFrame(loop)}}
+  function still(){for(var k=0;k<260;k++)step()}
+  size();
+  if(reduce){still()}else{start()}
+  new IntersectionObserver(function(e){visible=e[0].isIntersecting;if(visible)start()}).observe(cv);
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();if(reduce)still()},150)});
+  slider.addEventListener('input',function(){if(reduce){cx.fillStyle=col.paper;cx.fillRect(0,0,W,H);still()}});
+  var hero=document.querySelector('.hero');
+  hero.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+  hero.addEventListener('pointerleave',function(){mouse.x=mouse.y=-1e4});
+  new MutationObserver(function(){readColors();cx.fillStyle=col.paper;cx.fillRect(0,0,W,H);if(reduce)still()}).observe(root,{attributes:true,attributeFilter:['data-theme']});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){readColors();cx.fillStyle=col.paper;cx.fillRect(0,0,W,H)});
+})();
+</script>
 </body>
 </html>

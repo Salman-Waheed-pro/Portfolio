@@ -1,56 +1,41 @@
 # Portfolio
-A one page website telling about me
 
-## Live site
-Visit the public website: [Live site](https://salman-waheed-pro.github.io/Portfolio/)
+Personal site of Salman Waheed, software engineering student at TAMK (Tampere, Finland).
 
-## Project summary
-This repository contains my single-page portfolio website. It highlights my background, hybrid strengths (product, marketing, and engineering), selected work, and contact details in a clean dark-themed layout.
+**Live:** https://salman-waheed-pro.github.io/Portfolio/
 
-## Demo / Screenshot
-![Portfolio screenshot placeholder](assets/screenshot-placeholder.png)
+![Screenshot of the portfolio home page](assets/screenshot.jpg)
 
-TODO: Replace `assets/screenshot-placeholder.png` with an actual screenshot of the homepage. You can:
-1. Capture a screenshot of the live site.
-2. Save it as `assets/screenshot.png`.
-3. Update the image path above to `assets/screenshot.png`.
+## What's here
 
-## Features / Highlights
-- Single-page portfolio structure for quick navigation.
-- Responsive layout built with Tailwind CSS utilities.
-- Dark theme styling for modern presentation.
-- Clear sections for about, strengths, work, and contact.
+- `index.html`: the whole site. One file, no framework, no build step, no tracking.
+- `work/asten-coach-finder.html`: an interactive product design from a workshop (journey, data model, a working filter-and-rank demo).
+- `assets/`: screenshot and the social preview image.
+
+The hero is a field of particles that follow a slow flow field. The slider blends that flow with a random walk, and the pointer scatters particles near it. It respects `prefers-reduced-motion` (draws one still frame) and pauses when scrolled out of view. Light and dark themes follow the system setting, with a manual toggle.
+
+## Projects linked from the site
+
+| Project | Code |
+|---|---|
+| Pakistan real estate AI | [pakistan-real-estate-ai](https://github.com/Salman-Waheed-pro/pakistan-real-estate-ai) |
+| Cloudberry Scout | [cloudberry-scout](https://github.com/Salman-Waheed-pro/cloudberry-scout) |
+| SDLC governance for coding agents | [govern-plugin](https://github.com/Salman-Waheed-pro/govern-plugin), [sdlc-governance-system](https://github.com/Salman-Waheed-pro/sdlc-governance-system) |
+| Dewon Fried Chicken website | [Dewon-website](https://github.com/Salman-Waheed-pro/Dewon-website) |
+| BeaconMed, Oppipolku, Artha | Private (client data); described on the site |
 
 ## Run locally
-1. Clone this repository.
-2. Open `index.html` directly in your browser, **or** run a local static server:
-   - `npx http-server`
-   - `python -m http.server 8000`
-3. Open the local URL shown in your terminal.
 
-## Deployment
-This site is deployed with GitHub Pages at:
-- https://salman-waheed-pro.github.io/Portfolio/
+```bash
+python -m http.server 8000
+```
 
-Typical deployment flow:
-1. Push updates to the `main` branch.
-2. Ensure GitHub Pages is enabled in repository settings and points to the branch/folder configured for the site.
+Then open http://localhost:8000.
 
-## Technologies
-- HTML
-- Tailwind CSS (CDN)
-- Google Fonts (Inter)
+## Deploy
+
+GitHub Pages from the `main` branch root. Push to `main` and it updates.
 
 ## Contact
-- Email: [salman.waheed@tuni.fi](mailto:salman.waheed@tuni.fi)
-- In-page contact section: [`#contact`](https://salman-waheed-pro.github.io/Portfolio/#contact)
 
-## License / Attribution
-No license specified. If you plan to share or reuse this project, consider adding a `LICENSE` file.
-
-## Changelog / Recent updates
-- README expanded with live site, local setup steps, deployment notes, technologies, and contact info.
-- Live site link was added in a recent update.
-
-## Contributing (optional)
-Contributions are welcome for documentation and content improvements. Please open an issue or pull request with a clear summary of your proposed change.
+salman.waheed@tuni.fi
