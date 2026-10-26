@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Salman Waheed">
+  <!-- One flower, drawn in one line weight. The stem is a growth curve: flat ground, then a steep climb.
+       A thorn on the climb, a leaf on the flat, five pointed petals in balance, a gilt seed at the centre,
+       and three grains of sand blowing off to the right. -->
+  <g fill="none" stroke="#1F4B7A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 58.5 C 21 58.5, 29.6 54.5, 32 31"/>
+    <path d="M30.9 47.6 Q 33.2 45.4 36.6 43.4 Q 33.4 43.9 31.6 42.4 Z" fill="#1F4B7A" stroke="none"/>
+    <path d="M14.5 58.2 C 13.6 52.4, 17.4 48.2, 23.6 47.8 C 23.2 53.2, 20 57, 14.5 58.2 Z"/>
+    <path d="M15.5 57.2 L 21.6 50.2"/>
+    <g transform="translate(32 21)">
+      <path id="p" d="M0 -2.6 C -3.6 -6, -3.6 -11.6, 0 -16.4 C 3.6 -11.6, 3.6 -6, 0 -2.6 Z"/>
+      <use href="#p" transform="rotate(72)"/>
+      <use href="#p" transform="rotate(144)"/>
+      <use href="#p" transform="rotate(216)"/>
+      <use href="#p" transform="rotate(288)"/>
+    </g>
+  </g>
+  <g fill="#B98428">
+    <circle cx="32" cy="21" r="2.3"/>
+    <circle cx="51" cy="16.6" r="1.15"/>
+    <circle cx="55.2" cy="14.2" r=".85"/>
+    <circle cx="58.6" cy="16.4" r=".6"/>
+  </g>
+</svg>
