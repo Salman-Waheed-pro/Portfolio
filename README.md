@@ -13,6 +13,7 @@ Personal site of Salman Waheed, software engineering student at TAMK (Tampere, F
 - `assets/mark.svg`: the logo, one flower whose stem is a growth curve.
 - `assets/art/`: four public-domain paintings (Michelangelo, Hokusai, Friedrich, Van Gogh) from Wikimedia Commons.
 - `assets/og.jpg`, `assets/screenshot.jpg`: social preview and README screenshot.
+- `v1/` and `original/`: earlier versions of the site, kept as they were (served at `/Portfolio/v1/` and `/Portfolio/original/`, hidden from search engines).
 
 The hero is the logo drawn in grains of sand: they settle into the flower, scatter under the pointer, and blow off to the right as you scroll. It respects `prefers-reduced-motion` (one still frame) and pauses off screen. In the work list, hovering a project raises a tilted browser screen: public projects click through, private ones scroll inside. Light and dark themes follow the system setting, with a manual toggle.
 
