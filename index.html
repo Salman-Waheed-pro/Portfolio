@@ -26,7 +26,7 @@
 */
 :root{
   --paper:#F4F3F0; --paper-2:#E8E7E3; --sheet:#FFFFFF; --ink:#1E252B; --ink-2:#48515A; --ink-3:#5C656D;
-  --blue:#2448C9; --blue-soft:#E2E7F7; --sand:#B08A5A; --sand-ink:#7A5A2E; --sand-soft:#EFE6D8; --warm:#9E3B52;
+  --blue:#2448C9; --blue-soft:#E2E7F7; --sand:#B08A5A; --sand-ink:#7A5A2E; --sand-soft:#EFE6D8; --warm:##9A4320;
   --display:'Spline Sans Mono',ui-monospace,Menlo,Consolas,monospace;
   --body:'Spline Sans','Segoe UI',system-ui,-apple-system,sans-serif;
   --roman:'Cinzel','Trajan Pro',Georgia,serif;
@@ -38,12 +38,12 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --paper:#1C2227; --paper-2:#262E35; --sheet:#2A3239; --ink:#EEECE7; --ink-2:#C2C7CB; --ink-3:#A1A8AD;
-    --blue:#93A9FF; --blue-soft:#273256; --sand:#C9A577; --sand-ink:#D7B98F; --sand-soft:#3A3229; --warm:#E59AA9; color-scheme:dark;
+    --blue:#93A9FF; --blue-soft:#273256; --sand:#C9A577; --sand-ink:#D7B98F; --sand-soft:#3A3229; --warm:#E8996B; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --paper:#1C2227; --paper-2:#262E35; --sheet:#2A3239; --ink:#EEECE7; --ink-2:#C2C7CB; --ink-3:#A1A8AD;
-  --blue:#93A9FF; --blue-soft:#273256; --sand:#C9A577; --sand-ink:#D7B98F; --sand-soft:#3A3229; --warm:#E59AA9; color-scheme:dark;
+  --blue:#93A9FF; --blue-soft:#273256; --sand:#C9A577; --sand-ink:#D7B98F; --sand-soft:#3A3229; --warm:#E8996B; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-color:var(--ink-3) var(--paper)}
@@ -832,17 +832,17 @@ footer a:hover{color:var(--blue)}
   }
   if('IntersectionObserver' in window)new IntersectionObserver(function(e,o){if(e[0].isIntersecting){startGlobe();o.disconnect()}},{rootMargin:'400px'}).observe(gEl);else startGlobe();
 
-  /* footer: a small hug for whoever hovers */
+  /* footer: a small hug for whoever hovers, sent up as sparks off a campfire */
   (function(){
-    var h=document.getElementById('hug'),msg=h.querySelector('.say-hug'),busy=false,lines=['Sending you a warm hug.','Be gentle with yourself today.','Someone out here is rooting for you.'],k=0;
-    var tones=['#9E3B52','#B85C6E','#C97B86','#D99AA2','#B85C6E','#9E3B52','#C97B86'];
-    function heart(c){return '<svg viewBox="0 0 24 22" aria-hidden="true"><path fill="'+c+'" d="M12 21.2 10.4 19.8C4.6 14.6.8 11.2.8 7A5.9 5.9 0 0 1 6.8 1c1.9 0 3.9.9 5.2 2.4A6.9 6.9 0 0 1 17.2 1a5.9 5.9 0 0 1 6 6c0 4.2-3.8 7.6-9.6 12.8Z"/></svg>'}
+    var h=document.getElementById('hug'),msg=h.querySelector('.say-hug'),busy=false,lines=['Here\'s a hug, from one human to another.','Proud of you. Keep going.','Rest is part of the work too.'],k=0;
+    var light=['#9A4320','#B4572B','#C8703F','#9A4320','#D98B52','#B4572B','#C8703F'],dim=['#E8996B','#F0B088','#D9804F','#E8996B','#F3C2A0','#D9804F','#F0B088'];
+    function spark(c){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="'+c+'" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg>'}
     function burst(){if(busy)return;busy=true;
-      var dark=getComputedStyle(h).getPropertyValue('--warm').trim().toUpperCase()==='#E59AA9',pal=dark?['#E59AA9','#D9808F','#F0B9C2','#C9677A','#E59AA9','#F0B9C2','#D9808F']:tones;
+      var dark=getComputedStyle(h).getPropertyValue('--warm').trim().toUpperCase()==='#E8996B',pal=dark?dim:light;
       msg.textContent=lines[k++%lines.length];msg.classList.add('on');
-      pal.forEach(function(c,i){var s=document.createElement('span');s.className='pop';s.innerHTML=heart(c);
-        s.style.setProperty('--x',(6+i*13+Math.random()*6)+'%');s.style.setProperty('--sz',(i===0?26:12+Math.random()*10)+'px');
-        s.style.setProperty('--d',(4+Math.random()*1.6)+'s');s.style.setProperty('--dx',((Math.random()-.5)*50)+'px');s.style.setProperty('--r',((Math.random()-.5)*24)+'deg');s.style.animationDelay=(i*.22)+'s';
+      pal.forEach(function(c,i){var s=document.createElement('span');s.className='pop';s.innerHTML=spark(c);s.style.filter='drop-shadow(0 0 5px '+c+')';
+        s.style.setProperty('--x',(6+i*13+Math.random()*6)+'%');s.style.setProperty('--sz',(i===0?24:10+Math.random()*10)+'px');
+        s.style.setProperty('--d',(4+Math.random()*1.6)+'s');s.style.setProperty('--dx',((Math.random()-.5)*50)+'px');s.style.setProperty('--r',((Math.random()-.5)*90)+'deg');s.style.animationDelay=(i*.22)+'s';
         h.appendChild(s);setTimeout(function(){s.remove()},7600)});
       setTimeout(function(){msg.classList.remove('on');busy=false},5200);}
     h.addEventListener('mouseenter',burst);h.addEventListener('focus',burst);h.addEventListener('click',burst);
