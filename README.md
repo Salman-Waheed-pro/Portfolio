@@ -14,7 +14,7 @@ Personal site of Salman Waheed, software engineering student at TAMK (Tampere, F
 - `work/asten-coach-finder.html`: the interactive solution page from a workshop.
 - `v1/`, `v2/`, `original/`: earlier versions, kept as they were and hidden from search engines.
 
-The top of the page is a field of lines. Leave it alone and it calms into a desert rose; move fast or scroll and it storms again. A sentence then lights up word by word as you scroll. How I work is a temple that gets one column per habit as you read, over Thomas Cole's The Course of Empire (public domain) or a sky painted in code; both versions are on the page until one is chosen. The globe in Background flies to Tampere and raises a Finnish flag. In the work list, opening a project raises a browser screen: public projects click through from the picture, private ones scroll for the details.
+The top of the page is a field of lines. Leave it alone and it calms into a desert rose; move fast or scroll and it storms again. A sentence then lights up word by word as you scroll. How I work opens on a line from Pascal over Thomas Cole's The Course of Empire (public domain); as each habit reaches the middle of the screen the quote fades and a column goes up, until the roof closes the temple. The globe in Background flies to Tampere and raises a Finnish flag. In the work list, opening a project raises a browser screen: public projects click through from the picture, private ones scroll for the details. The footer line sends a small hug to whoever hovers it.
 
 ## Projects linked from the site
 

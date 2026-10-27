@@ -178,32 +178,34 @@ a.peek:hover img{transform:scale(1.03)}
 
 /* how I work: a temple built step by step while you read */
 .temple{position:relative;background:#171C20;color:#EEE9DF}
-.temple .note{font:400 13px var(--display);color:#B9B1A2;padding-top:var(--s7)}
-.temple .head{padding-top:var(--s6);margin-bottom:0}
+
+.temple .head{padding-top:var(--s8);margin-bottom:0}
 .temple .head h2{color:#F3EEE4}
-.temple .head p{color:#C9C1B2}
 .build{display:grid;grid-template-columns:minmax(0,1fr)}
 @media (min-width:1000px){.build{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--s7)}}
 .scene{position:sticky;top:0;height:min(100svh,860px);display:flex;align-items:center;z-index:1}
 @media (max-width:999px){.scene{height:52svh;top:0;background:#171C20;z-index:3}.steps{z-index:1}.frame .credit{display:none}}
 .frame{position:relative;width:100%;height:84%;border-radius:18px;overflow:hidden;background:#11161A}
-.frame .bgs,.frame canvas.sky{position:absolute;inset:0;width:100%;height:100%}
+.frame .bgs{position:absolute;inset:0;width:100%;height:100%}
 .frame .bgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.6s var(--ease),transform 6s var(--ease);filter:brightness(.62) saturate(.9)}
 .frame .bgs img.on{opacity:1;transform:scale(1)}
 .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(17,22,26,.75));pointer-events:none}
 .frame svg{position:absolute;left:50%;bottom:4%;translate:-50% 0;width:88%;height:auto;z-index:2;overflow:visible}
 .frame .credit{position:absolute;left:14px;bottom:10px;z-index:3;font:400 12px var(--body);color:#C9C1B2}
+.thought{position:absolute;inset:12% 8% auto;z-index:3;margin:0;text-align:center;color:rgba(246,241,231,.82);text-shadow:0 2px 24px rgba(0,0,0,.45);transition:opacity 1.1s var(--ease),filter 1.1s var(--ease),transform 1.1s var(--ease)}
+.thought p{font:300 clamp(24px,2.6vw,38px)/1.25 var(--display);letter-spacing:-.04em}
+.thought cite{display:block;margin-top:var(--s3);font:600 13px var(--roman);font-style:normal;letter-spacing:.02em;color:rgba(231,214,184,.8)}
+.temple.built .thought{opacity:0;filter:blur(8px);transform:translateY(-14px)}
 .col,.roof,.base{transition:transform 1.2s var(--ease),opacity .9s var(--ease)}
 .col,.base{transform-box:fill-box;transform-origin:50% 100%}
 .js .temple .col:not(.up),.js .temple .base:not(.up){transform:scaleY(0);opacity:0}
 .js .temple .roof:not(.up){transform:translateY(-70px);opacity:0}
-.steps{list-style:none;margin:0;padding:0 0 30svh;position:relative;z-index:2}
+.steps{list-style:none;margin:0;padding:88svh 0 34svh;position:relative;z-index:2}
 .steps li{min-height:72svh;display:flex;flex-direction:column;justify-content:center;padding:var(--s5) 0;opacity:.62;transition:opacity .6s var(--ease)}
 .steps li.on{opacity:1}
 .steps .k{color:#C7A776;margin-right:.6em}
 .steps h3{font:700 clamp(26px,2.6vw,36px)/1.15 var(--roman);letter-spacing:.04em;color:#F3EEE4;margin-bottom:var(--s3)}
 .steps p{color:#D4CDBF;font-size:18px;max-width:30rem}
-.steps li:last-child p.done{margin-top:var(--s5);font:600 15px var(--roman);letter-spacing:.02em;color:#C7A776}
 @media (prefers-reduced-motion:reduce){.col,.roof,.base,.frame .bgs img{transition:none}}
 
 /* background */
@@ -225,7 +227,7 @@ a.peek:hover img{transform:scale(1.03)}
 .side p{color:var(--ink-2);font-size:17.5px}
 .side p+p{margin-top:var(--s2)}
 .globe{position:relative;width:min(100%,380px);aspect-ratio:1;cursor:pointer;margin-bottom:var(--s5)}
-.globe canvas{width:100%;height:100%;display:block;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 64%,transparent 70.5%);mask-image:radial-gradient(circle at 50% 50%,#000 64%,transparent 70.5%)}
+.globe canvas{width:100%;height:100%;display:block}
 .globe .pin{position:absolute;left:50%;bottom:2%;translate:-50% 0;white-space:nowrap;font:500 14px var(--display);letter-spacing:-.02em;background:var(--blue);color:var(--paper);padding:7px 14px;border-radius:999px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease);pointer-events:none}
 .globe.arrived .pin{opacity:1;transform:none}
 .globe .hint{position:absolute;right:0;top:4%;font-size:13px;color:var(--ink-3);transition:opacity .4s}
@@ -260,6 +262,13 @@ footer{padding:var(--s6) 0 var(--s7);color:var(--ink-3);font-size:14px}
 footer .shell{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s3) var(--s6)}
 footer a{color:var(--ink-2)}
 footer a:hover{color:var(--blue)}
+.hug{all:unset;position:relative;cursor:pointer;display:inline-flex;flex-direction:column;gap:2px;font:400 15px var(--display);letter-spacing:-.03em;color:var(--ink-2);border-radius:8px}
+.hug:hover .q,.hug:focus-visible .q{color:var(--blue)}
+.hug:focus-visible{outline:3px solid var(--blue);outline-offset:6px}
+.say-hug{font:400 13.5px var(--body);color:var(--ink-3);min-height:1.4em}
+.pop{position:absolute;left:var(--x,40%);bottom:100%;font-size:var(--sz,22px);pointer-events:none;animation:floatup var(--d,1.8s) var(--ease) forwards}
+@keyframes floatup{0%{opacity:0;transform:translateY(10px) scale(.6)}15%{opacity:1;transform:translateY(0) scale(1.1)}100%{opacity:0;transform:translateY(-110px) scale(1) rotate(var(--r,0deg))}}
+@media (prefers-reduced-motion:reduce){.pop{animation:none;opacity:1}}
 </style>
 </head>
 <body>
@@ -295,7 +304,7 @@ footer a:hover{color:var(--blue)}
 
   <section class="block" id="work">
     <div class="shell">
-      <div class="head"><h2 class="big">Work</h2><p>Open a project to raise its screen. Public ones click through from the picture. Private ones scroll for the story.</p></div>
+      <div class="head"><h2 class="big">Work</h2></div>
       <div class="work">
         <ol class="rows" id="rows">
 
@@ -548,9 +557,8 @@ footer a:hover{color:var(--blue)}
       <div class="now">
         <div class="artha">
           <h3>Building <span>Artha</span>, at Aveksana</h3>
-          <p>A search engine for open research and innovation funding. It reads EU tenders and funding portals so researchers don't have to, and matches each call to what they actually work on.</p>
-          <p>Next, more regions, where the free APIs only list grants already awarded and the open calls have to be read from the pages themselves.</p>
-          <p class="src">4 sources today, including EU tenders and funding-portal calls.</p>
+          <p>Researchers lose days hunting for funding across scattered portals. Artha puts the open calls that fit their work in front of them, in one search.</p>
+          <p>It takes data pipelines that run every day, search that understands what a project is about rather than its keywords, and product work that turns all of it into something researchers actually reach for.</p>
         </div>
         <div class="question">
           <blockquote>Why does a <em>correct</em> answer so often fail to help?</blockquote>
@@ -565,10 +573,9 @@ footer a:hover{color:var(--blue)}
 
   <section class="temple" id="how" data-kind="paint">
     <div class="shell">
-      <p class="note">Option A: the background is Thomas Cole's The Course of Empire.</p>
-      <div class="head"><h2 class="big">How I work</h2><p>Four habits, one column each. Read down and the temple goes up.</p></div>
+      <div class="head"><h2 class="big">How I work</h2></div>
       <div class="build">
-        <div class="scene"><div class="frame"><div class="bgs"><img data-l="1" src="assets/art/cole-savage.jpg" alt="" width="1600" height="995" loading="lazy" decoding="async"><img data-l="2" src="assets/art/cole-arcadian.jpg" alt="" width="1600" height="997" loading="lazy" decoding="async"><img data-l="3" src="assets/art/cole-consummation.jpg" alt="" width="1600" height="1085" loading="lazy" decoding="async"></div><span class="credit">Thomas Cole, The Course of Empire (1834 to 1836). Public domain.</span>
+        <div class="scene"><div class="frame"><div class="bgs"><img data-l="1" src="assets/art/cole-savage.jpg" alt="" width="1600" height="995" loading="lazy" decoding="async"><img data-l="2" src="assets/art/cole-arcadian.jpg" alt="" width="1600" height="997" loading="lazy" decoding="async"><img data-l="3" src="assets/art/cole-consummation.jpg" alt="" width="1600" height="1085" loading="lazy" decoding="async"></div><span class="credit">Thomas Cole, The Course of Empire (1834 to 1836). Public domain.</span><blockquote class="thought"><p>All of humanity's problems stem from man's inability to sit quietly in a room alone.</p><cite>Blaise Pascal, Pens&eacute;es</cite></blockquote>
           <svg viewBox="0 0 1200 680" role="img" aria-label="A temple front that is built one column at a time">
             <defs>
               <filter id="howmarble" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".03 .012" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .18  0 0 0 0 .15  0 0 0 -1.3 .9"/><feComposite in2="SourceGraphic" operator="in"/></filter>
@@ -593,43 +600,7 @@ footer a:hover{color:var(--blue)}
           <li data-l="1"><h3><span class="k">I</span>Build before claiming</h3><p>If a skill isn't on a real project yet, I build a small one first. The CV comes after the commit.</p></li>
           <li data-l="2"><h3><span class="k">II</span>Measure the thing</h3><p>A demo shows the best case. A hundred checked questions and a list of the ways it fails show where it breaks, and that's what people need before they trust it.</p></li>
           <li data-l="3"><h3><span class="k">III</span>Name the constraint early</h3><p>Data that can't leave a factory, a tax law about invoices, a Finnish level of A1. Cheaper to design around on day one than to discover in week six.</p></li>
-          <li data-l="4"><h3><span class="k">IV</span>Review the machine</h3><p>I work with coding agents every day. Their code gets the same reading, testing and gates a teammate's would, and the decisions stay mine.</p><p class="done">Four columns. One roof. That's the work.</p></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="temple" id="how-b" data-kind="code">
-    <div class="shell">
-      <p class="note">Option B: the same section, with a sky painted in code.</p>
-      <div class="head"><h2 class="big">How I work</h2><p>Four habits, one column each. Read down and the temple goes up.</p></div>
-      <div class="build">
-        <div class="scene"><div class="frame"><canvas class="sky" aria-hidden="true"></canvas>
-          <svg viewBox="0 0 1200 680" role="img" aria-label="A temple front that is built one column at a time">
-            <defs>
-              <filter id="how-bmarble" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".03 .012" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .18  0 0 0 0 .15  0 0 0 -1.3 .9"/><feComposite in2="SourceGraphic" operator="in"/></filter>
-              <linearGradient id="how-bshaft" x1="0" x2="1"><stop offset="0" stop-color="#F6F3EC"/><stop offset=".42" stop-color="#DED8CD"/><stop offset="1" stop-color="#8F897F"/></linearGradient>
-              <linearGradient id="how-bmb" x1="0" x2="1"><stop offset="0" stop-color="#F0ECE4"/><stop offset="1" stop-color="#A49E94"/></linearGradient>
-              <linearGradient id="how-broofg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEEAE2"/><stop offset="1" stop-color="#BFB8AC"/></linearGradient>
-            </defs>
-            <g class="roof">
-              <path d="M50 158 L600 40 L1150 158 Z" fill="url(#how-broofg)"/>
-              <path d="M120 150 L600 62 L1080 150 Z" fill="#9C958A" opacity=".55"/>
-              <text x="600" y="132" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="700" letter-spacing="7" font-size="26" fill="#3B362F">MMXXVI</text>
-              <rect x="40" y="158" width="1120" height="16" fill="#ECE8DF"/>
-              <rect x="70" y="174" width="1060" height="48" fill="url(#how-broofg)"/>
-              <text x="600" y="209" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="700" letter-spacing="9" font-size="30" fill="#3B362F">HOW I WORK</text>
-              <rect x="70" y="222" width="1060" height="26" fill="#D1CBC0"/>
-            </g>
-            <g class="col" data-l="1"><rect x="157" y="600" width="136" height="12" rx="2" fill="url(#how-bmb)"/><rect x="165" y="589" width="120" height="12" rx="6" fill="url(#how-bmb)"/><path d="M183 282 L267 282 L273 590 L177 590 Z" fill="url(#how-bshaft)"/><path d="M183 282 L267 282 L273 590 L177 590 Z" fill="#fff" filter="url(#how-bmarble)" opacity=".3"/><path d="M192.5 284 L197.5 284 L193.8 588 L188.2 588 Z" fill="#000" opacity=".08"/><path d="M207.5 284 L212.5 284 L210.8 588 L205.2 588 Z" fill="#000" opacity=".08"/><path d="M222.5 284 L227.5 284 L227.8 588 L222.2 588 Z" fill="#000" opacity=".08"/><path d="M237.5 284 L242.5 284 L244.8 588 L239.2 588 Z" fill="#000" opacity=".08"/><path d="M252.5 284 L257.5 284 L261.8 588 L256.2 588 Z" fill="#000" opacity=".08"/><path d="M165 262 L285 262 L269 282 L181 282 Z" fill="url(#how-bmb)"/><rect x="159" y="248" width="132" height="15" rx="2" fill="#ECE8DF"/></g><g class="col" data-l="2"><rect x="407" y="600" width="136" height="12" rx="2" fill="url(#how-bmb)"/><rect x="415" y="589" width="120" height="12" rx="6" fill="url(#how-bmb)"/><path d="M433 282 L517 282 L523 590 L427 590 Z" fill="url(#how-bshaft)"/><path d="M433 282 L517 282 L523 590 L427 590 Z" fill="#fff" filter="url(#how-bmarble)" opacity=".3"/><path d="M442.5 284 L447.5 284 L443.8 588 L438.2 588 Z" fill="#000" opacity=".08"/><path d="M457.5 284 L462.5 284 L460.8 588 L455.2 588 Z" fill="#000" opacity=".08"/><path d="M472.5 284 L477.5 284 L477.8 588 L472.2 588 Z" fill="#000" opacity=".08"/><path d="M487.5 284 L492.5 284 L494.8 588 L489.2 588 Z" fill="#000" opacity=".08"/><path d="M502.5 284 L507.5 284 L511.8 588 L506.2 588 Z" fill="#000" opacity=".08"/><path d="M415 262 L535 262 L519 282 L431 282 Z" fill="url(#how-bmb)"/><rect x="409" y="248" width="132" height="15" rx="2" fill="#ECE8DF"/></g><g class="col" data-l="3"><rect x="657" y="600" width="136" height="12" rx="2" fill="url(#how-bmb)"/><rect x="665" y="589" width="120" height="12" rx="6" fill="url(#how-bmb)"/><path d="M683 282 L767 282 L773 590 L677 590 Z" fill="url(#how-bshaft)"/><path d="M683 282 L767 282 L773 590 L677 590 Z" fill="#fff" filter="url(#how-bmarble)" opacity=".3"/><path d="M692.5 284 L697.5 284 L693.8 588 L688.2 588 Z" fill="#000" opacity=".08"/><path d="M707.5 284 L712.5 284 L710.8 588 L705.2 588 Z" fill="#000" opacity=".08"/><path d="M722.5 284 L727.5 284 L727.8 588 L722.2 588 Z" fill="#000" opacity=".08"/><path d="M737.5 284 L742.5 284 L744.8 588 L739.2 588 Z" fill="#000" opacity=".08"/><path d="M752.5 284 L757.5 284 L761.8 588 L756.2 588 Z" fill="#000" opacity=".08"/><path d="M665 262 L785 262 L769 282 L681 282 Z" fill="url(#how-bmb)"/><rect x="659" y="248" width="132" height="15" rx="2" fill="#ECE8DF"/></g><g class="col" data-l="4"><rect x="907" y="600" width="136" height="12" rx="2" fill="url(#how-bmb)"/><rect x="915" y="589" width="120" height="12" rx="6" fill="url(#how-bmb)"/><path d="M933 282 L1017 282 L1023 590 L927 590 Z" fill="url(#how-bshaft)"/><path d="M933 282 L1017 282 L1023 590 L927 590 Z" fill="#fff" filter="url(#how-bmarble)" opacity=".3"/><path d="M942.5 284 L947.5 284 L943.8 588 L938.2 588 Z" fill="#000" opacity=".08"/><path d="M957.5 284 L962.5 284 L960.8 588 L955.2 588 Z" fill="#000" opacity=".08"/><path d="M972.5 284 L977.5 284 L977.8 588 L972.2 588 Z" fill="#000" opacity=".08"/><path d="M987.5 284 L992.5 284 L994.8 588 L989.2 588 Z" fill="#000" opacity=".08"/><path d="M1002.5 284 L1007.5 284 L1011.8 588 L1006.2 588 Z" fill="#000" opacity=".08"/><path d="M915 262 L1035 262 L1019 282 L931 282 Z" fill="url(#how-bmb)"/><rect x="909" y="248" width="132" height="15" rx="2" fill="#ECE8DF"/></g>
-            <g class="base"><rect x="30" y="612" width="1140" height="22" fill="#DCD6CB"/><rect x="15" y="634" width="1170" height="22" fill="#C5BEB2"/><rect x="0" y="656" width="1200" height="24" fill="#ABA498"/></g>
-          </svg>
-        </div></div>
-        <ol class="steps">
-          <li data-l="1"><h3><span class="k">I</span>Build before claiming</h3><p>If a skill isn't on a real project yet, I build a small one first. The CV comes after the commit.</p></li>
-          <li data-l="2"><h3><span class="k">II</span>Measure the thing</h3><p>A demo shows the best case. A hundred checked questions and a list of the ways it fails show where it breaks, and that's what people need before they trust it.</p></li>
-          <li data-l="3"><h3><span class="k">III</span>Name the constraint early</h3><p>Data that can't leave a factory, a tax law about invoices, a Finnish level of A1. Cheaper to design around on day one than to discover in week six.</p></li>
-          <li data-l="4"><h3><span class="k">IV</span>Review the machine</h3><p>I work with coding agents every day. Their code gets the same reading, testing and gates a teammate's would, and the decisions stay mine.</p><p class="done">Four columns. One roof. That's the work.</p></li>
+          <li data-l="4"><h3><span class="k">IV</span>Review the machine</h3><p>I work with coding agents every day. Their code gets the same reading, testing and gates a teammate's would, and the decisions stay mine.</p></li>
         </ol>
       </div>
     </div>
@@ -654,8 +625,9 @@ footer a:hover{color:var(--blue)}
             <div class="globe" id="globe" tabindex="0" role="img" aria-label="Globe that zooms to Tampere, Finland"><canvas width="760" height="760"></canvas><span class="pin">Tampere, Finland</span><span class="hint">Hover or tap the globe</span></div>
             <h3>Software Engineering</h3><p>Tampere University of Applied Sciences, Finland.</p><p>Led a student team through a task-manager MVP with Jira and Confluence.</p>
           </div>
-          <div><h3>Before software</h3><p>Social media management for a consultancy.</p><p>Volunteer on the social media team at TBH, which helps thalassemia patients in Pakistan.</p></div>
-          <div><h3>Languages and tools</h3><p>Python, Java, SQL, JavaScript and Node.js, React, HTML and CSS. Spring Boot, PostgreSQL, ChromaDB, Docker, FastAPI, scikit-learn, GeoPandas.</p><p>Finnish: learning, A1.</p></div>
+          <div><h3>Before software</h3><p>Social media management for a consultancy.</p><p>Volunteer on the social media team at The Blood Heroes (TBH), a student-run welfare organisation and Pakistan's largest volunteer blood network. It works to make safe blood available to every patient in the country and runs thalassemia awareness drives nationwide.</p></div>
+          <div><h3>Languages</h3><p>English: proficient. Edexcel O Level English, grade A; IB English Literature, 6.</p><p>Urdu and Pashto: native.</p><p>Finnish: learning, A1.</p></div>
+          <div><h3>Tools</h3><p>Python, Java, SQL, JavaScript and Node.js, React, HTML and CSS. Spring Boot, PostgreSQL, ChromaDB, Docker, FastAPI, scikit-learn, GeoPandas.</p></div>
         </div>
       </div>
     </div>
@@ -690,7 +662,10 @@ footer a:hover{color:var(--blue)}
     </div>
   </section>
 </main>
-<footer><div class="shell"><span>Salman Waheed, Finland</span><span><a href="v1/">First version</a></span></div></footer>
+<footer><div class="shell">
+  <button class="hug" id="hug" type="button"><span class="q">You're doing better than you think.</span><span class="say-hug" aria-live="polite"></span></button>
+  <a href="v1/">First version</a>
+</div></footer>
 <script>
 (function(){
   var root=document.documentElement, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -750,46 +725,25 @@ footer a:hover{color:var(--blue)}
   })();
 
   /* temples: one column per habit as you read, the roof when the last one is read */
-  function noise2(seed){var p=[];for(var i=0;i<512;i++)p[i]=Math.random();
-    function v(x,y){var xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;function h(a,b){return p[((a*73856093)^(b*19349663)^seed)&511]}
-      var u=xf*xf*(3-2*xf),w=yf*yf*(3-2*yf);return (h(xi,yi)*(1-u)+h(xi+1,yi)*u)*(1-w)+(h(xi,yi+1)*(1-u)+h(xi+1,yi+1)*u)*w}
-    return function(x,y){var s=0,a=.5,f=1;for(var o=0;o<5;o++){s+=a*v(x*f,y*f);a*=.5;f*=2}return s}}
-  function paintSky(level,Wd,Ht){
-    var c=document.createElement('canvas');c.width=Wd;c.height=Ht;var x=c.getContext('2d');
-    var P=[ ['#0F151C','#26303B','#4D545C','#3A3F45',.75,'#7A828C'],
-            ['#1B2740','#58617F','#D9A27A','#2F3A45',.45,'#F1D2B8'],
-            ['#3A5F92','#89ABCF','#EFD3A6','#3B4A3E',.35,'#FFFFFF'],
-            ['#1F2B52','#A9645A','#F2B562','#2C2633',.4,'#FFE4B8'] ][level-1];
-    var g=x.createLinearGradient(0,0,0,Ht);g.addColorStop(0,P[0]);g.addColorStop(.55,P[1]);g.addColorStop(.82,P[2]);x.fillStyle=g;x.fillRect(0,0,Wd,Ht);
-    if(level>=2){var sun=x.createRadialGradient(Wd*.68,Ht*.72,2,Wd*.68,Ht*.72,Ht*.5);sun.addColorStop(0,'rgba(255,240,210,.9)');sun.addColorStop(.15,'rgba(255,210,150,.35)');sun.addColorStop(1,'rgba(255,200,150,0)');x.fillStyle=sun;x.fillRect(0,0,Wd,Ht)}
-    var n=noise2(level*97),img=x.getImageData(0,0,Wd,Ht),d=img.data,cl=rgb(P[5]).split(',').map(Number);
-    for(var yy=0;yy<Ht*.75;yy++)for(var xx=0;xx<Wd;xx++){var v=n(xx/Wd*5,yy/Ht*7);var a=Math.max(0,(v-.48)*2.6)*P[4]*(1-yy/(Ht*.75));if(a<=0)continue;
-      var k=(yy*Wd+xx)*4;d[k]=d[k]*(1-a)+cl[0]*a;d[k+1]=d[k+1]*(1-a)+cl[1]*a;d[k+2]=d[k+2]*(1-a)+cl[2]*a}
-    x.putImageData(img,0,0);
-    function ridge(base,amp,col,seed){var m=noise2(seed);x.beginPath();x.moveTo(0,Ht);for(var i=0;i<=Wd;i+=4){x.lineTo(i,base-amp*m(i/Wd*3,seed))}x.lineTo(Wd,Ht);x.closePath();x.fillStyle=col;x.fill()}
-    ridge(Ht*.84,Ht*.28,'rgba('+rgb(P[3])+',.75)',level*11+3);ridge(Ht*.9,Ht*.16,P[3],level*13+5);
-    return c;
-  }
   document.querySelectorAll('.temple').forEach(function(t){
-    var steps=[].slice.call(t.querySelectorAll('.steps li')),level=0,imgs=t.querySelectorAll('.bgs img'),sky=t.querySelector('canvas.sky'),skies=[],shown=null,fade=1;
+    var steps=[].slice.call(t.querySelectorAll('.steps li')),level=0,imgs=t.querySelectorAll('.bgs img');
     function set(l){if(l===level)return;level=l;
       t.querySelectorAll('.col').forEach(function(c){c.classList.toggle('up',+c.dataset.l<=l)});
       t.querySelector('.base').classList.toggle('up',l>=1);
       t.querySelector('.roof').classList.toggle('up',l>=4);
       steps.forEach(function(s){s.classList.toggle('on',+s.dataset.l===l)});
       var bgL=Math.max(1,Math.min(3,l));imgs.forEach(function(im){im.classList.toggle('on',+im.dataset.l===bgL)});
-      if(sky)drawSky(Math.max(1,l));
-    }
-    function drawSky(l){
-      if(!skies.length){var r=sky.getBoundingClientRect();sky.width=640;sky.height=Math.round(640*r.height/Math.max(1,r.width));for(var i=1;i<=4;i++)skies[i]=paintSky(i,sky.width,sky.height)}
-      var cx=sky.getContext('2d'),from=shown,to=skies[l],a=0;shown=to;
-      (function f(){a=Math.min(1,a+(reduce?1:.03));cx.globalAlpha=1;if(from)cx.drawImage(from,0,0);cx.globalAlpha=a;cx.drawImage(to,0,0);cx.globalAlpha=1;if(a<1)requestAnimationFrame(f)})();
     }
     if(imgs.length)imgs[0].classList.add('on');
-    if(reduce||!('IntersectionObserver' in window)){set(4);return}
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(+e.target.dataset.l)})},{rootMargin:'-45% 0px -45% 0px'});
-    steps.forEach(function(s){io.observe(s)});
-    new IntersectionObserver(function(es){if(es[0].isIntersecting&&level===0&&sky)drawSky(1)},{rootMargin:'200px'}).observe(t);
+    if(reduce){set(4);t.classList.add('built');return}
+    var ticking=false;
+    function measure(){ticking=false;
+      var mid=innerHeight*(innerWidth<1000?.72:.5),n=0;
+      steps.forEach(function(st){var h=st.querySelector('h3').getBoundingClientRect();if(h.top+h.height/2<mid)n=+st.dataset.l});
+      set(n);t.classList.toggle('built',n>=1);
+    }
+    addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(measure)}},{passive:true});
+    addEventListener('resize',measure);measure();
   });
 
   /* globe: spins slowly; hover or tap and it flies to Tampere, then a Finnish flag goes up */
@@ -812,13 +766,14 @@ footer a:hover{color:var(--blue)}
         var rot=startRot?d3.geoInterpolate([-startRot[0],-startRot[1]],AIM)(Math.min(1,e*1.6)):[-idleRot[0],-idleRot[1]];
         var k=Math.max(0,(e-.25)/.75);var R=R0*Math.pow(R1/R0,k);
         proj.rotate([-rot[0],-rot[1]]).scale(R);
-        ctx.clearRect(0,0,S,S);
+        ctx.clearRect(0,0,S,S);ctx.save();ctx.beginPath();ctx.arc(S/2,S/2,R0,0,7);ctx.clip();
         var g=ctx.createRadialGradient(S*.4,S*.35,R*.05,S/2,S/2,R*1.02);g.addColorStop(0,'#3F64E0');g.addColorStop(1,'#14275F');
         ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=g;ctx.fill();
         var hi=R>S*1.4;
         ctx.beginPath();path({type:'FeatureCollection',features:hi?nbHi:land});ctx.fillStyle='#D8BE96';ctx.fill();
         ctx.beginPath();path(hi?finHi:fin110);ctx.fillStyle='#F7F4EE';ctx.fill();
         if(flagT>=0)drawFlag(now);
+        ctx.restore();
       }
       function drawFlag(now){
         var p=proj(TAMPERE);if(!p)return;var el=(now-flagT)/1000,u=S/760;
@@ -857,6 +812,19 @@ footer a:hover{color:var(--blue)}
     }).catch(function(){gEl.hidden=true});
   }
   if('IntersectionObserver' in window)new IntersectionObserver(function(e,o){if(e[0].isIntersecting){startGlobe();o.disconnect()}},{rootMargin:'400px'}).observe(gEl);else startGlobe();
+
+  /* footer: a small hug for whoever hovers */
+  (function(){
+    var h=document.getElementById('hug'),msg=h.querySelector('.say-hug'),busy=false,lines=['Sending you a hug from Finland.','Here, have a hug.','Proud of you. Keep going.'],k=0;
+    function burst(){if(busy)return;busy=true;msg.textContent=lines[k++%lines.length];
+      var bits=['🤗','💙','🤍','💙','✨','💙'];
+      bits.forEach(function(e,i){var s=document.createElement('span');s.className='pop';s.textContent=e;
+        s.style.setProperty('--x',(8+i*15+Math.random()*6)+'%');s.style.setProperty('--sz',(i===0?34:16+Math.random()*10)+'px');
+        s.style.setProperty('--d',(1.4+Math.random()*.9)+'s');s.style.setProperty('--r',((Math.random()-.5)*30)+'deg');s.style.animationDelay=(i*.08)+'s';
+        h.appendChild(s);setTimeout(function(){s.remove()},2600)});
+      setTimeout(function(){busy=false},1800);}
+    h.addEventListener('mouseenter',burst);h.addEventListener('focus',burst);h.addEventListener('click',burst);
+  })();
 
   /* the field.
      Lines blow through a flow field. Leave it alone and calm builds: the lines settle and draw a desert rose,
